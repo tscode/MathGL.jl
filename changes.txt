@@ -1,0 +1,10 @@
+Overview of the changes when compared to Mathgl
+
+    o xtick function: lbl argument to xtick is not of the form
+      "label1\nlabel2\nlabel3\n..." but instead an array 
+      Array["label1", "label2", "label3", ...]
+    o added xrotate, yrotate, zrotate functions
+    o writeframe instead of write
+    o setframe instead of setnumframe
+    o width and height as function names for get_width and get_height
+    o mgl_set_num_thr function will not get exported
