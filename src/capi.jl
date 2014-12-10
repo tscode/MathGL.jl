@@ -5,10 +5,10 @@
 # Constants and Types
 #-------------------------------------------------------------------------#
 
-const lib     = "libmgl"
-const libqt   = "libmgl-qt"
-const libflkt = "libmgl-flkt"
-const libglut = "libmgl-glut"
+const lib     = find_library(["libmgl", "libmgl2"])
+const libqt   = find_library(["libmgl-qt"])
+const libflkt = find_library(["libmgl-flkt"])
+const libglut = find_library(["libmgl-glut"])
 
 typealias HMGL Ptr{Void}
 typealias HCDT Ptr{Void}

@@ -1,3 +1,4 @@
+# Setup functions for MathGL.jl
 
 # resetting all parameters, clear graph
 function reset(gr::MglAbstractGraph)
