@@ -8,7 +8,7 @@ end #module MathGL.C
 
 # Simulating the mathgl c++ api
 # Make the C functions with name mgl_fname accessible by mgl.fname
-importall MathGL.Capi
+using MathGL.Capi
 mgl = MathGL.Capi
 
 # Abstractly wrap the mathgl classes in julia types
@@ -23,6 +23,7 @@ include("setup.jl")
 # Plotting functionse
 # Auxilliary plotting functions, e.g. bounding box, legends, colorbars, ...
 include("misc.jl")
+include("primitives.jl")
 #include("1d.jl")
 include("2d.jl")
 #include("3d.jl")

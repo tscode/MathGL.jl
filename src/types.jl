@@ -24,6 +24,12 @@ end
 # (maybe via using the Capi)
 
 
+import Base: show
+function show(io::IO, gr::MglAbstractGraph)
+    println(io, "MglGraph of size $(width(gr))x$(height(gr))")
+end
+
+
 # Mgl Data types -- won't be very usefull when using julia
 #---------------------------------------------------------#
 abstract MglAbstractData

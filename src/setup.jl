@@ -119,11 +119,11 @@ function font(gr::MglAbstractGraph, from::MglAbstractGraph)
     mgl.copy_font(gr.ptr, from.ptr)
 end
 
-function font(gr::MglAbstractGraph)
+function restorefont(gr::MglAbstractGraph)
     mgl.restore_font(gr.ptr)
 end
 
-function font(name::ASCIIString, path::ASCIIString="")
+function defaultfont(name::ASCIIString, path::ASCIIString="")
     mgl.def_font(name, path)
 end
 
@@ -695,67 +695,3 @@ function background(gr::MglAbstractGraph, fname::ASCIIString, alpha::Float64)
     mgl.load_background(gr.ptr, fname, alpha)
 end
 
-# Draw Primitives
-function mark(gr::MglAbstractGraph, x::Real, y::Real, z::Real, mark::ASCIIString)
-    mgl.mark(gr.ptr, x, y, z, mark)
-end
-
-function mark(gr::MglAbstractGraph, p::AbstractArray, mark::ASCIIString)
-    mark(gr, p[1], p[2], p[3], mark)
-end
-
-function errbox(gr::MglAbstractGraph, x::Real, y::Real, z::Real, ex::Real, ey::Real, ez::Real; stl::ASCIIString="")
-    mgl.error_box(gr.ptr, x, y, z, ex, ey, ez, stl)
-end
-
-function errbox(gr::MglAbstractGraph, p::AbstractArray, ep::AbstractArray; stl::ASCIIString="")
-    if length(p) == length(ep) == 2
-        errbox(gr, p..., 0., ep..., NaN, stl)
-    elseif length(p) == length(ep) == 3
-        errbox(gr, p..., ep..., stl=stl)
-    else
-        error("Lengths of the input vectors must match (either 2 or 3 dimensional)")
-    end
-end
-
-function line(gr::MglAbstractGraph, x1::Real, y1::Real, z1::Real, x2::Real, y2::Real, z2::Real; stl::ASCIIString="B", num::Int=2)
-    mgl.line(gr.ptr, x1, y1, z1, x2, y2, z2, stl, num)
-end
-
-function line(gr::MglAbstractGraph, p1::AbstractArray, p2::AbstractArray; stl::ASCIIString="B", num::Int=2)
-    if length(p1) == length(p2) == 2
-        line(gr, p1..., 0., p2..., 0., stl=stl, num=num)
-    elseif length(p1) == length(p2) == 3
-        line(gr, p1..., p2..., stl=stl, num=num)
-    else
-        error("Lengths of the input vectors must match (either 2 or 3 dimensional)")
-    end
-end
-
-function curve(gr::MglAbstractGraph, x1::Int, y1::Int, z1::Int, dx1::Int, dy1::Int, dz1::Int, x2::Int, y2::Int, z2::Int, dx2::Int, dy2::Int, dz2::Int; stl::ASCIIString="B", num::Int=100)
-    mgl.curve(gr.ptr, x1, y1, z1, dx1, dy1, dz1, x2, y2, z2, dx2, dy2, dz2, stl, num)
-end
-
-function curve(gr::MglAbstractGraph, p1::AbstractArray, dp1::AbstractArray, p2::AbstractArray, dp2::AbstractArray; stl::ASCIIString="B", num::Int=100)
-    if length(p1) == length(dp1) == length(p2) == length(dp2) == 2
-        curve(gr, p1..., 0., dp1..., 0., p2..., 0., dp2..., 0., stl=stl, num=num)
-    elseif length(p1) == length(dp1) == length(p2) == length(dp2) == 3
-        curve(gr, p1..., dp1..., p2..., dp2..., stl=stl, num=num)
-    else
-        error("Lengths of the input vectors must match (either 2 or 3 dimensional)")
-    end
-end
-
-function face(gr::MglAbstractGraph, x1::Int, y1::Int, z1::Int, x2::Int, y2::Int, z2::Int, x3::Int, y3::Int, z3::Int, x4::Int, y4::Int, z4::Int; stl::ASCIIString="w") 
-    face(gr.ptr, x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4, stl)
-end
-
-function face(gr::MglAbstractGraph, p1::AbstractArray, p2::AbstractArray, p3::AbstractArray, p4::AbstractArray; stl::ASCIIString="w")
-    if length(p1) == length(p2) == length(p3) == length(p4) == 2
-        face(gr, p1..., 0., p2..., 0., p3..., 0., p4..., 0., stl=stl)
-    elseif length(p1) == length(p2) == length(p3) == length(p4) == 3
-        face(gr, p1..., p2..., p3..., p4..., stl=stl)
-    else
-        error("Lengths of the input vectors must match (either 2 or 3 dimensional)")
-    end
-end
