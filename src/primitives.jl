@@ -227,7 +227,7 @@ function arc(gr::MglAbstractGraph, x0::Real, y0::Real, z0::Real, x1::Real, y1::R
     mgl.arc_ext(gr.ptr, x0, y0, z0, 0., 0., 1., x1, y1, z1, a, stl)
 end
 
-function arc(gr::MglAbstractGraph, x0::Real, y0::Real, z0::Real, xa::Real, ya::Real, za::Real, x1::Real, y1::Real, z1::Real, a::Real; stl::ASCIIString"r")
+function arc(gr::MglAbstractGraph, x0::Real, y0::Real, z0::Real, xa::Real, ya::Real, za::Real, x1::Real, y1::Real, z1::Real, a::Real; stl::ASCIIString="r")
     mgl.arc_ext(gr.ptr, x0, y0, z0, xa, ya, za, x1, y1, z1, a, stl)
 end
 

@@ -24,6 +24,7 @@ include("setup.jl")
 # Auxilliary plotting functions, e.g. bounding box, legends, colorbars, ...
 include("misc.jl")
 include("primitives.jl")
+include("text.jl")
 #include("1d.jl")
 include("2d.jl")
 #include("3d.jl")
