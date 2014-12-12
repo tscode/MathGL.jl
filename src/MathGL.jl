@@ -4,7 +4,7 @@ module MathGL
 module Capi
 #providing access to the c api
 include("capi.jl")
-end #module MathGL.C
+end #module MathGL.Capi
 
 # Simulating the mathgl c++ api
 # Make the C functions with name mgl_fname accessible by mgl.fname
@@ -20,7 +20,7 @@ include("types.jl")
 include("setup.jl")
 
 
-# Plotting functionse
+# Plotting function
 # Auxilliary plotting functions, e.g. bounding box, legends, colorbars, ...
 include("misc.jl")
 include("primitives.jl")
@@ -29,6 +29,11 @@ include("text.jl")
 include("2d.jl")
 #include("3d.jl")
 
+# Macros to simulate the mgl scripting language
+include("macroplot.jl")
+
+
+# A module for fast and dirty usage of MathGL
 module Shortnames
 include("shortnames.jl")
 end #module Shortnames

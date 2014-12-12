@@ -1,12 +1,12 @@
 # Graph types
 #------------#
-abstract MglAbstractGraph
+abstract AbstractGraph
 
-type MglGraph <: MglAbstractGraph
+type Graph <: AbstractGraph
     # Pointer to the c++ mglGraph class
     ptr::Ptr{Void}
-    # MglGraph constructors
-    function MglGraph(width::Integer=600, height::Integer=400; kind::Integer=0)
+    # Graph constructors
+    function Graph(width::Integer=600, height::Integer=400; kind::Integer=0)
         if kind == 0
             graph = new(mgl.create_graph(width, height))
         else
@@ -25,21 +25,21 @@ end
 
 
 import Base: show
-function show(io::IO, gr::MglAbstractGraph)
-    println(io, "MglGraph of size $(width(gr))x$(height(gr))")
+function show(io::IO, gr::AbstractGraph)
+    print(io, "Graph of size $(width(gr))x$(height(gr))")
 end
 
 
 # Mgl Data types -- won't be very usefull when using julia
 #---------------------------------------------------------#
-abstract MglAbstractData
+abstract AbstractData
 
 # The standard mglData class for real floating point numbers
-type MglData <: MglAbstractData
+type Data <: AbstractData
     # Pointer to the c++ mglData class
     ptr::Ptr{Void}
-    # MglData constructor
-    function MglData()
+    # Data constructor
+    function Data()
         data = new(mgl.create_data())
         finalizer(data, x -> mgl.delete_data(x.ptr))
         return data
@@ -47,15 +47,15 @@ type MglData <: MglAbstractData
 end
 
 # Create Mgl data class with link to a julia array
-function MglData(values::Array{mgl.Float})
+function Data(values::Array{mgl.Float})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
-    data = MglData()
+    data = Data()
     mgl.data_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
     return data
 end
 
 # Link or Relink Mgl data class to a julia array
-function MglData(data::MglData, values::Array{mgl.Float})
+function Data(data::Data, values::Array{mgl.Float})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
     mgl.data_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
     return data
@@ -63,11 +63,11 @@ end
 
 
 # The standard mglData class for complex floating point numbers
-type MglDataC <: MglAbstractData
+type DataC <: AbstractData
     # Pointer to the c++ mglDataC class
     ptr::Ptr{Void}
-    # MglDataC constructor
-    function MglDataC()
+    # DataC constructor
+    function DataC()
         data = new(mgl.create_datac())
         finalizer(data, x -> mgl.delete_datac(x.ptr))
         return data
@@ -76,15 +76,15 @@ end
 
 
 # Create Mgl dataC class with link to a julia array
-function MglData(values::Array{mgl.Dual})
+function Data(values::Array{mgl.Dual})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
-    data = MglDataC()
+    data = DataC()
     mgl.datac_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
     return data
 end
 
 # Link or relink Mgl dataC class to a julia array
-function MglData(data::MglData, values::Array{mgl.Dual})
+function Data(data::Data, values::Array{mgl.Dual})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
     mgl.datac_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
     return data
@@ -94,15 +94,15 @@ end
 # Other Mgl types (no support planned right now)
 #-----------------------------------------------#
 #=
-type MglParse
+type Parse
     ptr::Ptr{Void}
 end
 
-type MglExpr
+type Expr
     ptr::Ptr{Void}
 end
 
-type MglExprC
+type ExprC
     ptr::Ptr{Void}
 end
 =#
