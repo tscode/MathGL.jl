@@ -1,3 +1,5 @@
+[TOC]
+
 # MathGL.jl #
 
 MathGL.jl shall provide a wrapper for the scientific visualization library
