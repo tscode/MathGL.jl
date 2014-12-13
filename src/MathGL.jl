@@ -19,7 +19,6 @@ include("types.jl")
 # Funktions to set options, defaults, ect.
 include("setup.jl")
 
-
 # Plotting function
 # Auxilliary plotting functions, e.g. bounding box, legends, colorbars, ...
 include("misc.jl")
