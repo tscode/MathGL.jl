@@ -25,13 +25,16 @@ The C functions provided by MathGL are callable via the Capi submodule of
 MathGL. The Capi-module is more or less complete (some functions may be
 missing, but most functionality is certainly implemented); however,
 it is not comfortable to use. Documentation regarding the Capi (function
-names and their description) may be found in the mathgl documentation.
+names and their description) may be found in the 
+[MathGL documentation](http://mathgl.sourceforge.net/doc_en/Main.html).
 
 Examples: 
 using MathGL.Capi
 mgl = MathGL.Capi
 
 gr = mgl.create_graph(800, 800)
+mgl.box(gr)
+mgl.plot(gr, sin(linspace(0, 2pi, 50)))
 TODO
 
 #### The Higher Level Julian Interface ####
@@ -51,8 +54,8 @@ several reasons:
       alterations, see below).
 
 There are, however, important functions that are not covered by the
-scripting language (which only handles one graph). In this cases
-Some remarkable/maybe unexpected changes are listed in ???
+scripting language (which is designed to only handle one graph). In this cases
+some remarkable/maybe unexpected changes are listed in ???
 
 #### Abusing The Matrix Syntax: Mgl Scripts in Julia ####
 To make it short: The following two code samples are perfectly equivalent
