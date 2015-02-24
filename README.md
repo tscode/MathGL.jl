@@ -2,16 +2,16 @@
 
 ## Contents
 
-- [Requirements ###](#requirements-)
-- [Usage and Examples ###](#usage-and-examples-)
-    - [The C Interface ####](#the-c-interface-)
-    - [The Higher Level Julian Interface ####](#the-higher-level-julian-interface-)
-    - [Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia ####](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia-)
+- [Requirements ](#requirements)
+- [Usage and Examples ](#usage-and-examples)
+    - [The C Interface ](#the-c-interface)
+    - [The Higher Level Julian Interface ](#the-higher-level-julian-interface)
+    - [Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia ](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia)
 - [TODO](#todo)
 
 <!-- end toc -->
 
-# MathGL.jl #
+# MathGL.jl
 *This repository won't work right now*
 
 MathGL.jl shall provide a wrapper for the scientific visualization library
@@ -23,7 +23,7 @@ MathGL.jl is currently under construction, still lacks most of the
 functions provided by MathGL and is probably not portable (only linux
 tested).
 
-### Requirements ###
+### Requirements 
 Besides the code of this repository, you will need a working and up-to-date
 version of libmgl in a folder that julia can find via find\_library. For
 additional functions (which are *not* supported yet), like qt, tk, etc.
@@ -31,8 +31,8 @@ the corresponding libraries (e.g. libmgl-qt5) must also be installed
 properly.
 
 
-### Usage and Examples ###
-#### The C Interface ####
+### Usage and Examples 
+#### The C Interface 
 The C functions provided by MathGL are callable via the Capi submodule of
 MathGL. The Capi-module is more or less complete (some functions may be
 missing, but most functionality is certainly implemented); however,
@@ -52,7 +52,7 @@ mgl.write_frame(gr, "test.png", "")
 ```
 TODO
 
-#### The Higher Level Julian Interface ####
+#### The Higher Level Julian Interface 
 The type structure was (quite loosely) modeled after the C++ class
 structure, the most important type (currently) being the `Graph`.  The
 function names (e.g. text, surf, plot, xtics, ...) were -- whenever
@@ -73,7 +73,7 @@ scripting language (which is designed to handle one graph only).
 Some of these deviations of function names can be found in the file
 changes.md.
 
-#### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia ####
+#### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia 
 To make it short: The following two code samples are perfectly equivalent
 ??? ???
 
