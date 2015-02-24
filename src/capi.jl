@@ -5,7 +5,8 @@
 # Constants and Types
 #-------------------------------------------------------------------------#
 
-const lib     = find_library(["libmgl", "libmgl2"])
+# TODO: Julia bug segfaults when using find_library on libmgl!
+const lib     = "libmgl" #find_library(["libmgl", "libmgl2"])
 const libqt   = find_library(["libmgl-qt"])
 const libflkt = find_library(["libmgl-flkt"])
 const libglut = find_library(["libmgl-glut"])
