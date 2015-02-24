@@ -1,6 +1,7 @@
 *.py
 *.old
 readme.md
+update-readme
 
 stuff/*
 utils/*

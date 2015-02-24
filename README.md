@@ -12,7 +12,7 @@
 <!-- end toc -->
 
 # MathGL.jl
-*This repository won't work right now*
+**This repository probably won't work yet**
 
 MathGL.jl shall provide a wrapper for the scientific visualization library
 [MathGL](http://mathgl.sourceforge.net) written in C++.
@@ -26,7 +26,7 @@ tested).
 ### Requirements 
 Besides the code of this repository, you will need a working and up-to-date
 version of libmgl in a folder that julia can find via find\_library. For
-additional functions (which are *not* supported yet), like qt, tk, etc.
+additional functions (which are *not* supported yet), like qt, glut, etc.
 the corresponding libraries (e.g. libmgl-qt5) must also be installed
 properly.
 
