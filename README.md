@@ -40,17 +40,22 @@ it is not comfortable to use. Documentation regarding the Capi (function
 names and their description) may be found in the 
 [MathGL documentation](http://mathgl.sourceforge.net/doc_en/Main.html).
 
-Examples: 
+An example: 
 ```julia
 using MathGL.Capi
 mgl = MathGL.Capi
 
-gr = mgl.create_graph(800, 800)
+gr  = mgl.create_graph(1000, 1000)
+mgl.title(gr, "sin C", "", -2)
+dat = mgl.create_data()
+mgl.data_link(dat, 0.8*sin(linspace(0, 2pi, 50)), 50, 1, 1)
 mgl.box(gr)
-mgl.plot(gr, sin(linspace(0, 2pi, 50)))
-mgl.write_frame(gr, "test.png", "")
+mgl.plot(gr, dat, "", "")
+mgl.write_frame(gr, "../graphs/sin_C.png", "")
 ```
-TODO
+
+Note however, that the C interface does only limited type checks (so
+expect segfaults when using the wrong argument types)
 
 #### The Higher Level Julian Interface 
 The type structure was (quite loosely) modeled after the C++ class
@@ -60,24 +65,24 @@ possible -- chosen to be the corresponding commands of the mgl scripting
 language (see mathgl documentation for the details). This was done for
 several reasons:
     
-    * The names of the mgl commands are very julian (e.g. few underscores,
-      heavily overloaded)
-    * The C interface is tedious, the C++ interface does not really
-      fit well
-    * An abuse of julia's matrix construction syntax makes it possible to
-      write mgl script code directly in julia (with some slight
-      alterations, see below).
+* The names of the mgl commands are very julian (e.g. few underscores,
+  heavily overloaded)
+* The C interface is tedious, the C++ interface does not really
+  fit well
+* An abuse of julia's matrix construction syntax makes it possible to
+  write mgl script code directly in julia (with some slight
+  alterations, see below).
 
 There are, however, important functions that are not covered by the
 scripting language (which is designed to handle one graph only).
 Some of these deviations of function names can be found in the file
-changes.md.
+[changes.md](/changes.md).
 
 #### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia 
-To make it short: The following two code samples are perfectly equivalent
-??? ???
+To make it short: The following two code samples are perfectly equivalent.
+*Coming soon*
 
 ### TODO
 
-Still too much missing to bother enumerating it here...
+Still too much missing to bother enumerating...
 
