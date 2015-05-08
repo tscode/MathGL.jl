@@ -27,9 +27,9 @@ include("primitives.jl")
 # Text & text-positioning (along directions, curves...)
 include("text.jl")
 # Plot 1d data
-include("1d.jl")
+include("1dplot.jl")
 # Plot 2d data
-include("2d.jl")
+include("2dplot.jl")
 # Plot 3d data
 #include("3d.jl")
 
