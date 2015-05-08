@@ -713,4 +713,3 @@
 @getf lib mgl_draw_class(gr::HMGL, p::Ptr{Void})::Cint
 @getf lib mgl_click_class(p::Ptr{Void})::Void
 @getf lib mgl_reload_class(p::Ptr{Void})::Void
-

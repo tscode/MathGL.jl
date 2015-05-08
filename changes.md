@@ -12,3 +12,7 @@ Overview of the changes when compared to the scripting interface of Mathgl
     * axis&grid function: axis specifier dir not keyword argument
     * use stl instead of sch; not sure of this yet
     * for colorbar, sch (or stl) stays optional argument
+    * set_obj_id, get_obj_id -> objectid
+    * draw_reg -> drawregion
+    * numthr -> numthreads
+    * mark + textmark -> make radius r keyword

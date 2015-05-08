@@ -26,11 +26,11 @@ end
 
 import Base: show
 function show(io::IO, gr::AbstractGraph)
-    print(io, "Graph of size $(width(gr))x$(height(gr))")
+    print(io, "MathGL Graph of size $(width(gr))x$(height(gr))")
 end
 
 
-# Mgl Data types -- won't be very usefull when using julia
+# Mgl Data types -- won't be very useful when using julia
 #---------------------------------------------------------#
 abstract AbstractData
 
@@ -76,7 +76,7 @@ end
 
 
 # Create Mgl dataC class with link to a julia array
-function Data(values::Array{mgl.Dual})
+function DataC(values::Array{mgl.Dual})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
     data = DataC()
     mgl.datac_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
@@ -84,7 +84,7 @@ function Data(values::Array{mgl.Dual})
 end
 
 # Link or relink Mgl dataC class to a julia array
-function Data(data::Data, values::Array{mgl.Dual})
+function DataC(data::DataC, values::Array{mgl.Dual})
     @assert ndims(values) <= 3 "Dimension of the input array is $(ndims(values)). The MathGl data class only supports up to 3 dimensions."
     mgl.datac_link(data.ptr, values, size(values, 1), size(values, 2), size(values, 3))
     return data

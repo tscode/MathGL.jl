@@ -159,13 +159,17 @@ function stop(gr::AbstractGraph, enable::Bool=true)
     mgl.ask_stop(gr.ptr, enable)
 end
 
-# Ranges TODO: allow ranges to be set according to data
+# Ranges (partially done) TODO: allow ranges to be set according to data
 function xrange(gr::AbstractGraph, x1::Real, x2::Real; add::Bool=false)
     if add
         mgl.add_range_val(gr.ptr, 'x', x1, x2)
     else
         mgl.set_range_val(gr.ptr, 'x', x1, x2)
     end
+end
+
+function xrange(gr::AbstractGraph, x::Array{mgl.Float})
+    mgl.set_range_val(gr.ptr, 'x', minimum(x), maximum(x))
 end
 
 function yrange(gr::AbstractGraph, y1::Real, y2::Real; add::Bool=false)
@@ -176,12 +180,20 @@ function yrange(gr::AbstractGraph, y1::Real, y2::Real; add::Bool=false)
     end
 end
 
+function yrange(gr::AbstractGraph, y::Array{mgl.Float})
+    mgl.set_range_val(gr.ptr, 'y', minimum(y), maximum(y))
+end
+
 function zrange(gr::AbstractGraph, z1::Real, z2::Real; add::Bool=false)
     if add
         mgl.add_range_val(gr.ptr, 'z', z1, z2)
     else
         mgl.set_range_val(gr.ptr, 'z', z1, z2)
     end
+end
+
+function zrange(gr::AbstractGraph, z::Array{mgl.Float})
+    mgl.set_range_val(gr.ptr, 'z', minimum(z), maximum(z))
 end
 
 function crange(gr::AbstractGraph, c1::Real, c2::Real; add::Bool=false)
@@ -192,8 +204,16 @@ function crange(gr::AbstractGraph, c1::Real, c2::Real; add::Bool=false)
     end
 end
 
+function crange(gr::AbstractGraph, c::Array{mgl.Float})
+    mgl.set_range_val(gr.ptr, 'c', minimum(c), maximum(c))
+end
+
 function ranges(gr::AbstractGraph, x1::Real, x2::Real, y1::Real, y2::Real, z1::Real=0., z2::Real=0.)
     mgl.set_ranges(gr.ptr, x1, x2, y1, y2, z1, z2)
+end
+
+function ranges(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float}=[0.])
+    mgl.set_ranges(gr.ptr, minimum(x), maximum(x), minimum(y), maximum(y), minimum(z), maximum(z))
 end
 
 function origin(gr::AbstractGraph, x0::Real, y0::Real, z0::Real=NaN)
@@ -652,10 +672,32 @@ function calcscr(gr::AbstractGraph, x::Int, y::Int, z::Int)
     [xs, ys]
 end
 
-# TODO: yet to implement object, draw region, ids ect...
+function objectid(gr::AbstractGraph, id::Int)
+    mgl.set_obj_id(gr.ptr, id)
+end
+
+function objectid(gr::AbstractGraph, xs::Int, ys::Int)
+    mgl.get_obj_id(gr.ptr, xs, ys)
+end
+
+function subplotid(gr::AbstractGraph, xs::Int, ys::Int)
+    mgl.get_spl_id(gr.ptr, xs, ys)
+end
+
+function highlight(gr::AbstractGraph, id::Int)
+    mgl.highlight(gr.ptr, id)
+end
+
+function isactive(gr::AbstractGraph, xs::Int, ys::Int, d::Int=1)
+    mgl.is_active(gr.ptr, xs, ys, d)
+end
+
+function drawregion(gr::AbstractGraph, nx::Int, ny::Int, m::Int)
+    mgl.set_draw_reg(gr.ptr, nx, ny, m)
+end
 
 ## NOT TO BE EXPORTED ###
-function numthr(n::Int)
+function numthreads(n::Int)
     mgl.set_num_thr(n)
 end
 
@@ -691,7 +733,7 @@ function rasterize(gr::AbstractGraph)
     mgl.rasterize(gr.ptr)
 end
 
-function background(gr::AbstractGraph, fname::ASCIIString, alpha::Float64)
+function background(gr::AbstractGraph, fname::ASCIIString, alpha::Float64=1)
     mgl.load_background(gr.ptr, fname, alpha)
 end
 

@@ -7,9 +7,9 @@
 
 # TODO: Julia bug segfaults when using find_library on libmgl!
 const lib     = "libmgl" #find_library(["libmgl", "libmgl2"])
-const libqt   = find_library(["libmgl-qt"])
-const libflkt = find_library(["libmgl-flkt"])
-const libglut = find_library(["libmgl-glut"])
+const libqt   = Libdl.find_library(["libmgl-qt"])
+const libflkt = Libdl.find_library(["libmgl-flkt"])
+const libglut = Libdl.find_library(["libmgl-glut"])
 
 typealias HMGL Ptr{Void}
 typealias HCDT Ptr{Void}
