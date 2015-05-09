@@ -57,9 +57,9 @@ mgl.box(gr)
 mgl.axis(gr, "xyz", "", "")
 mgl.axis_grid(gr, "xyz", "G|", "")
 mgl.plot(gr, dat, "", "")
-mgl.write_frame(gr, "../graphs/sin_C.svg", "")
+mgl.write_frame(gr, "../graphs/sin_C.png", "")
 ```
-![sin_C example](/graphs/sin_C.svg)
+![sin_C example](/graphs/sin_C.png?raw=true)
 Note however, that the C interface does only limited type checks (so
 expect segfaults when using the wrong argument types).
 

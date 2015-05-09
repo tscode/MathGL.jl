@@ -11,4 +11,4 @@ mgl.axis(gr, "xyz", "", "")
 mgl.axis_grid(gr, "xyz", "G|", "")
 #=mgl.set_origin(gr, 0., 0., 0.)=#
 mgl.plot(gr, dat, "", "")
-mgl.write_frame(gr, "../graphs/sin_C.svg", "")
+mgl.write_frame(gr, "../graphs/sin_C.png", "")
