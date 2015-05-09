@@ -3,9 +3,9 @@ function axis(gr::AbstractGraph, dir::ASCIIString="xyz"; sch::ASCIIString="", op
     mgl.axis(gr.ptr, dir, sch, opt)
 end
 
-function axis(gr::AbstractGraph, dir::Symbol=:xyz; sch::ASCIIString="", opt::ASCIIString="")
-    mgl.axis(gr.ptr, string(dir), sch, opt)
-end
+#=function axis(gr::AbstractGraph, dir::Symbol=:xyz; sch::ASCIIString="", opt::ASCIIString="")=#
+    #=mgl.axis(gr.ptr, string(dir), sch, opt)=#
+#=end=#
 
 function colorbar(gr::AbstractGraph; sch::ASCIIString="")
     mgl.colorbar(gr.ptr, sch)
@@ -23,13 +23,9 @@ function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Real, y::Real; w
     mgl.colorbar_val_ext(gr.ptr, Data(v).ptr, sch, x, y, w, h)
 end
 
-function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="B", opt::ASCIIString="")
+function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="H|", opt::ASCIIString="")
     mgl.axis_grid(gr.ptr, dir, stl, opt)
 end
-
-#=function grid(gr::AbstractGraph, dir::ASCIIString=:xyz; stl::ASCIIString="B", opt::ASCIIString="")=#
-    #=mgl.axis_grid(gr.ptr, string(dir), stl, opt)=#
-#=end=#
 
 function box(gr::AbstractGraph; col::ASCIIString="", ticks::Bool=true)
     mgl.box_str(gr.ptr, col, ticks)
