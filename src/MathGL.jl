@@ -31,7 +31,7 @@ include("1dplot.jl")
 # Plot 2d data
 include("2dplot.jl")
 # Plot 3d data
-#include("3d.jl")
+include("3dplot.jl")
 
 # Macros to simulate the mgl scripting language / maybe more in the future
 include("macroplot.jl")

@@ -16,3 +16,6 @@ Overview of the changes when compared to the scripting interface of Mathgl
     * numthr -> numthreads
     * mark + textmark -> make radius r keyword
     * call everything stl instead of pen, sch, ...
+    * not completely consisten order of arguments with MathGL script, e.g.
+    for function surf3
+    * allow sometimes more argument types (e.g. val for surf3)
