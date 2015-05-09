@@ -1,7 +1,7 @@
 using MathGL
 mgl = MathGL
 
-gr  = mgl.Graph(800, 500)
+gr = mgl.Graph(800, 500)
 mgl.xlabel(gr, "x")
 mgl.ylabel(gr, "y")
 mgl.box(gr)

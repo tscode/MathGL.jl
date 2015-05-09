@@ -1,7 +1,7 @@
 using MathGL.Capi
 mgl = MathGL.Capi
 
-gr  = mgl.create_graph(800, 500)
+gr = mgl.create_graph(800, 500)
 dat = mgl.create_data()
 mgl.data_link(dat, 0.8*sin(linspace(-4pi, 4pi, 200)), 200, 1, 1)
 mgl.label(gr, 'x', "x", 0, "")

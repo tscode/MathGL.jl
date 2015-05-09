@@ -13,21 +13,24 @@
 <!-- end toc -->
 
 # MathGL.jl
-**This repository probably won't work yet**
+**This repository probably still has major issues and is a work in
+progress**
 
-MathGL.jl shall provide a wrapper for the scientific visualization library
-[MathGL](http://mathgl.sourceforge.net) written in C++.
-It relies on the C interface of MathGL, wrapping it with julia to
-a (hopefully) convenient degree.
+![main example](/graphs/main_example.png?raw=true)
 
-MathGL.jl is currently under construction, still lacks much of the
+MathGL.jl provides a wrapper for the feature rich scientific visualization
+library [MathGL](http://mathgl.sourceforge.net) written in C++. It relies
+on the C interface of MathGL, wrapping it with julia to a convenient
+degree.
+
+MathGL.jl is currently under construction, still lacks a part of the
 functions provided by MathGL and is probably not portable (only linux
-tested). Plotting functions from the sections "4.14 Dual plotting" on (in the manual)
-are still missing, the rest should be implemented (with only few
-exceptions).
+tested). Plotting functions from the section "4.14 Dual plotting" on (in
+the [documentation](http://mathgl.sourceforge.net/doc_en/Main.html)
+are still missing, the rest should be implemented (with few exceptions).
 
 ### Requirements 
-Besides the code of this repository, you will need a working and up-to-date
+Besides the code of this repository you will need a working and up-to-date
 version of libmgl in a folder that julia can find via find\_library. For
 additional functions (which are *not* supported yet), like qt, glut, etc.
 the corresponding libraries (e.g. libmgl-qt5) must also be installed
@@ -60,15 +63,15 @@ mgl.plot(gr, dat, "", "")
 mgl.write_frame(gr, "sin_C.png", "")
 ```
 ![sin_C example](/graphs/sin_C.png?raw=true)
-Note however, that the C interface does only limited type checks (so
-expect segfaults when using the wrong argument types).
+Note however, that the C interface only conducts limited type checks, so
+expect segfaults when using the wrong argument types.
 
 #### The Higher Level Julian Interface 
 The type structure was (quite loosely) modeled after the C++ class
-structure, the most important type being the `Graph`.  The
+structure of MathGL, the most important type being the `Graph`. The
 function names (e.g. text, surf, plot, xtics, ...) were -- whenever
-possible -- chosen to be the corresponding commands of the mgl scripting
-language (see mathgl documentation for the details). This was done for
+possible -- chosen to be the corresponding commands of the MathGL scripting
+language (see the documentation for the details). This was done for
 several reasons:
     
 * The names of the mgl commands are very julian (e.g. few underscores,
@@ -77,7 +80,7 @@ several reasons:
   fit well
 * An abuse of julia's matrix construction syntax makes it possible to
   write mgl script code directly in julia (with some slight
-  alterations, see below).
+  alterations, see [below](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia).
 
 There are, however, important functions that are not covered by the
 scripting language (which is designed to handle one graph only).
@@ -85,7 +88,7 @@ Some of these deviations of function names can be found in the file
 [changes.md](/changes.md), the most important ones are given
 [below](#changes-to-mathgl).
 
-The same examples as above:
+The same example as above in the julian interface:
 ```julia
 using MathGL
 mgl = MathGL
@@ -119,12 +122,21 @@ gr = MathGL.Graph(800, 500)
 ```
 This is nice because the syntax given in the macro resembles the
 MGL script syntax quite well. Of course there are deviations (e.g. always
-the keyword 'stl' is used, never 'fnt' or 'sch' or ... .
+the keyword 'stl' is used, never 'fnt' or 'sch' or ...).
+
+## Examples
+Examples can be found in the folder `examples`. Right now the only relevant
+example is the one creating the picture at the top of this repository,
+[here](/examples/main_example.jl).
 
 ## Changes to MathGL
-Not yet decided...
+Not yet decided ... 
 
 ## TODO
-Much!
-
-
+* Make all plotting functions accessible from julia
+* Provide some more utility functions
+* Write some documentation / tutorials for the Usage of MathGL
+* Implement the gui graph classes of MathGL
+* Testing! Not much is tested, there are certainly tons of bugs yet
+undiscovered (but easy to resolve)
+* Document the changes compared to MathGL

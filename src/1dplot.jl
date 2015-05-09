@@ -35,11 +35,11 @@ function tens(gr::AbstractGraph, y::Array{mgl.Float, 1}, c::Array{mgl.Float, 1};
     mgl.tens(gr.ptr, Data(y).ptr, Data(c).ptr, stl, opt)
 end
 
-function plot(gr::AbstractGraph, x::Array{mgl.Float, 1}, y::Array{mgl.Float, 1}; stl::ASCIIString="", opt::ASCIIString="")
+function tens(gr::AbstractGraph, x::Array{mgl.Float, 1}, y::Array{mgl.Float, 1}; stl::ASCIIString="", opt::ASCIIString="")
     mgl.tens_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(c).ptr, stl, opt)
 end
 
-function plot(gr::AbstractGraph, x::Array{mgl.Float, 1}, y::Array{mgl.Float, 1}, z::Array{mgl.Float, 1}, c::Array{mgl.Float, 1}; stl::ASCIIString="", opt::ASCIIString="")
+function tens(gr::AbstractGraph, x::Array{mgl.Float, 1}, y::Array{mgl.Float, 1}, z::Array{mgl.Float, 1}, c::Array{mgl.Float, 1}; stl::ASCIIString="", opt::ASCIIString="")
     mgl.tens_xyz(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, Data(c).ptr, stl, opt)
 end
 
@@ -128,7 +128,7 @@ function cones(gr::AbstractGraph, x::Array{mgl.Float, 1}, y::Array{mgl.Float, 1}
     mgl.cones_xyz(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function chart(gr::AbstractGraph, a::Array{mgl.Float, 1}; stl::ASCIIString="", opt::ASCIIString="")
+function chart(gr::AbstractGraph, a::Array{mgl.Float}; stl::ASCIIString="", opt::ASCIIString="")
     mgl.chart(gr.ptr, Data(a).ptr, stl, opt)
 end
 

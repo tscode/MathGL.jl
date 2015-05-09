@@ -21,9 +21,8 @@ macro mglplot(graph, commands)
             fname = Expr(:., :MathGL, Expr(:quote, :($(row))))
             push!(block.args, Expr(:call, fname, graph))
         elseif typeof(row) != Expr # Do nothing now, maybe TODO
-        elseif row.head != :row
-            error("Can't understand the sequence of mgl commands. " *
-                  "Expected symbol ':row'.")
+        elseif row.head != :row # Just do what is given as statement, if it is no row
+            push!(block.args, row)
         else
             # Replace ":(=)" symbols with ":kw" symbols so that they can be put in a function
             args = [ typeof(arg)    != Expr ? 

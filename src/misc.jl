@@ -1,30 +1,34 @@
 
-function axis(gr::AbstractGraph, dir::ASCIIString="xyz"; sch::ASCIIString="", opt::ASCIIString="")
-    mgl.axis(gr.ptr, dir, sch, opt)
+function axis(gr::AbstractGraph, dir::ASCIIString="xyz", stl::ASCIIString="", opt::ASCIIString="")
+    mgl.axis(gr.ptr, dir, stl, opt)
 end
 
-#=function axis(gr::AbstractGraph, dir::Symbol=:xyz; sch::ASCIIString="", opt::ASCIIString="")=#
-    #=mgl.axis(gr.ptr, string(dir), sch, opt)=#
+#=function axis(gr::AbstractGraph, dir::Symbol=:xyz; stl::ASCIIString="", opt::ASCIIString="")=#
+    #=mgl.axis(gr.ptr, string(dir), stl, opt)=#
 #=end=#
 
-function colorbar(gr::AbstractGraph; sch::ASCIIString="")
-    mgl.colorbar(gr.ptr, sch)
+function colorbar(gr::AbstractGraph; stl::ASCIIString="")
+    mgl.colorbar(gr.ptr, stl)
 end
 
-function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}; sch::ASCIIString="")
-    mgl.colorbar_val(gr.ptr, Data(v).ptr, sch)
+function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}; stl::ASCIIString="")
+    mgl.colorbar_val(gr.ptr, Data(v).ptr, stl)
 end
 
-function colorbar(gr::AbstractGraph, x::Real, y::Real; w::Real=1., h::Real=1., sch::ASCIIString="")
-    mgl.colorbar_ext(gr.ptr, sch, x, y, w, h)
+function colorbar(gr::AbstractGraph, x::Real, y::Real; w::Real=1., h::Real=1., stl::ASCIIString="")
+    mgl.colorbar_ext(gr.ptr, stl, x, y, w, h)
 end
 
-function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Real, y::Real; w::Real=1., h::Real=1., sch::ASCIIString="")
-    mgl.colorbar_val_ext(gr.ptr, Data(v).ptr, sch, x, y, w, h)
+function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Real, y::Real; w::Real=1., h::Real=1., stl::ASCIIString="")
+    mgl.colorbar_val_ext(gr.ptr, Data(v).ptr, stl, x, y, w, h)
 end
 
-function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="H|", opt::ASCIIString="")
+function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="h-", opt::ASCIIString="")
     mgl.axis_grid(gr.ptr, dir, stl, opt)
+end
+
+function subgrid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="h=", opt::ASCIIString="")
+    mgl.axis_grid(gr.ptr, "!"*dir, stl, opt)
 end
 
 function box(gr::AbstractGraph; col::ASCIIString="", ticks::Bool=true)

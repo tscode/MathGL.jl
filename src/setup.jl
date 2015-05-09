@@ -225,11 +225,11 @@ function zoomaxis(gr::AbstractGraph, x1::Real, y1::Real, z1::Real, x2::Real, y2:
 end
 
 # Curvilinear coordinates
-function axis(gr::AbstractGraph, eqx::ASCIIString, eqy::ASCIIString, eqz::ASCIIString)
-    mgl.set_func(gr.ptr, eqx, eqy, eqz)
+function coords(gr::AbstractGraph; X::ASCIIString="", Y::ASCIIString="", Z::ASCIIString="", C::ASCIIString="")
+    mgl.set_func(gr.ptr, X, Y, Z, C)
 end
 
-function axis(gr::AbstractGraph, how::Integer)
+function coords(gr::AbstractGraph, how::Integer=0)
     mgl.set_coor(gr.ptr, how)
 end
 
@@ -324,6 +324,17 @@ function ztick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}
 end
 function ctick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
     mgl.set_ticks_valw(gr.ptr, 'c', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+end
+
+# For Resetting
+function xtick(gr::AbstractGraph)
+    mgl.set_ticks(gr.ptr, 'x', 0, 0, NaN)
+end
+function ytick(gr::AbstractGraph)
+    mgl.set_ticks(gr.ptr, 'y', 0, 0, NaN)
+end
+function ztick(gr::AbstractGraph)
+    mgl.set_ticks(gr.ptr, 'z', 0, 0, NaN)
 end
 
 
@@ -444,10 +455,10 @@ function stickplot(gr::AbstractGraph, num::Int, ind::Int, tet::Real, phi::Real)
     mgl.stickplot(gr.ptr, num, ind, tet, phi)
 end
 
-function title(gr::AbstractGraph, txt::ASCIIString; stl::ASCIIString="", size::ASCIIString=-2)
+function title(gr::AbstractGraph, txt::ASCIIString; stl::ASCIIString="", size::Int=-2)
     mgl.title(gr.ptr, txt, stl, size)
 end
-function title(gr::AbstractGraph, txt::UTF8String; stl::ASCIIString="", size::ASCIIString=-2)
+function title(gr::AbstractGraph, txt::UTF8String; stl::ASCIIString="", size::Int=-2)
     mgl.titlew(gr.ptr, txt, stl, size)
 end
 
