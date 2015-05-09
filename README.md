@@ -57,7 +57,7 @@ mgl.box(gr)
 mgl.axis(gr, "xyz", "", "")
 mgl.axis_grid(gr, "xyz", "H|", "")
 mgl.plot(gr, dat, "", "")
-mgl.write_frame(gr, "../graphs/sin_C.png", "")
+mgl.write_frame(gr, "sin_C.png", "")
 ```
 ![sin_C example](/graphs/sin_C.png?raw=true)
 Note however, that the C interface does only limited type checks (so
@@ -97,16 +97,34 @@ mgl.box(gr)
 mgl.axis(gr)
 mgl.grid(gr)
 mgl.plot(gr, 0.8*sin(linspace(-4pi, 4pi, 200)))
-mgl.writeframe(gr, "../graphs/sin_julia.png")
+mgl.writeframe(gr, "sin_julia.png")
 ```
 
 #### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia 
-To make it short: The following two code samples are perfectly equivalent.
-*Coming soon*
+To make it short: The following code sample is perfectly equivalent to the
+one above.
+```julia
+using MathGL
+
+gr = MathGL.Graph(800, 500)
+@mglplot gr [
+    xlabel "x"
+    ylabel "y"
+    box
+    axis
+    grid
+    plot 0.8*sin(linspace(-4pi, 4pi, 200))
+    writeframe "sin_mgl.png"
+]
+```
+This is nice because the syntax given in the macro resembles the
+MGL script syntax quite well. Of course there are deviations (e.g. always
+the keyword 'stl' is used, never 'fnt' or 'sch' or ... .
 
 ## Changes to MathGL
+Not yet decided...
 
-### TODO
+## TODO
+Much!
 
-Still too much missing to bother enumerating...
 
