@@ -7,6 +7,7 @@
     - [The C Interface ](#the-c-interface)
     - [The Higher Level Julian Interface ](#the-higher-level-julian-interface)
     - [Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia ](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia)
+- [Changes to MathGL](#changes-to-mathgl)
 - [TODO](#todo)
 
 <!-- end toc -->
@@ -19,9 +20,11 @@ MathGL.jl shall provide a wrapper for the scientific visualization library
 It relies on the C interface of MathGL, wrapping it with julia to
 a (hopefully) convenient degree.
 
-MathGL.jl is currently under construction, still lacks most of the
+MathGL.jl is currently under construction, still lacks much of the
 functions provided by MathGL and is probably not portable (only linux
-tested).
+tested). Plotting functions from the sections "4.14 Dual plotting" on (in the manual)
+are still missing, the rest should be implemented (with only few
+exceptions).
 
 ### Requirements 
 Besides the code of this repository, you will need a working and up-to-date
@@ -55,11 +58,11 @@ mgl.write_frame(gr, "../graphs/sin_C.png", "")
 ```
 
 Note however, that the C interface does only limited type checks (so
-expect segfaults when using the wrong argument types)
+expect segfaults when using the wrong argument types).
 
 #### The Higher Level Julian Interface 
 The type structure was (quite loosely) modeled after the C++ class
-structure, the most important type (currently) being the `Graph`.  The
+structure, the most important type being the `Graph`.  The
 function names (e.g. text, surf, plot, xtics, ...) were -- whenever
 possible -- chosen to be the corresponding commands of the mgl scripting
 language (see mathgl documentation for the details). This was done for
@@ -76,11 +79,14 @@ several reasons:
 There are, however, important functions that are not covered by the
 scripting language (which is designed to handle one graph only).
 Some of these deviations of function names can be found in the file
-[changes.md](/changes.md).
+[changes.md](/changes.md), the most important ones are given
+[below](#changes-to-mathgl).
 
 #### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia 
 To make it short: The following two code samples are perfectly equivalent.
 *Coming soon*
+
+## Changes to MathGL
 
 ### TODO
 
