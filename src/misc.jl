@@ -23,13 +23,13 @@ function colorbar(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Real, y::Real; w
     mgl.colorbar_val_ext(gr.ptr, Data(v).ptr, sch, x, y, w, h)
 end
 
-function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; pen::ASCIIString="B", opt::ASCIIString="")
-    mgl.axis_grid(gr.ptr, dir, pen, opt)
+function grid(gr::AbstractGraph, dir::ASCIIString="xyz"; stl::ASCIIString="B", opt::ASCIIString="")
+    mgl.axis_grid(gr.ptr, dir, stl, opt)
 end
 
-function grid(gr::AbstractGraph, dir::ASCIIString=:xyz; pen::ASCIIString="B", opt::ASCIIString="")
-    mgl.axis_grid(gr.ptr, string(dir), pen, opt)
-end
+#=function grid(gr::AbstractGraph, dir::ASCIIString=:xyz; stl::ASCIIString="B", opt::ASCIIString="")=#
+    #=mgl.axis_grid(gr.ptr, string(dir), stl, opt)=#
+#=end=#
 
 function box(gr::AbstractGraph; col::ASCIIString="", ticks::Bool=true)
     mgl.box_str(gr.ptr, col, ticks)
@@ -39,35 +39,35 @@ function box(gr::AbstractGraph)
     mgl.box(gr.ptr)
 end
 
-function label(gr::AbstractGraph, dir::Char, text::ASCIIString; pos::Real=1., opt::ASCIIString="")
+function label(gr::AbstractGraph, dir::Char, text::ASCIIString; pos::Real=0., opt::ASCIIString="")
     mgl.label(gr.ptr, dir, text, pos, opt)
 end
 
-function label(gr::AbstractGraph, dir::Char, text::UTF8String;  pos::Real=1., opt::ASCIIString="")
+function label(gr::AbstractGraph, dir::Char, text::UTF8String;  pos::Real=0., opt::ASCIIString="")
     mgl.labelw(gr.ptr, dir, text, pos, opt)
 end
 
-function xlabel(gr::AbstractGraph, text::ASCIIString; pos::Real=1., opt::ASCIIString="")
+function xlabel(gr::AbstractGraph, text::ASCIIString; pos::Real=0., opt::ASCIIString="")
     mgl.label(gr.ptr, 'x', text, pos, opt)
 end
 
-function ylabel(gr::AbstractGraph, text::ASCIIString; pos::Real=1., opt::ASCIIString="")
+function ylabel(gr::AbstractGraph, text::ASCIIString; pos::Real=0., opt::ASCIIString="")
     mgl.label(gr.ptr, 'y', text, pos, opt)
 end
 
-function zlabel(gr::AbstractGraph, text::ASCIIString; pos::Real=1., opt::ASCIIString="")
+function zlabel(gr::AbstractGraph, text::ASCIIString; pos::Real=0., opt::ASCIIString="")
     mgl.label(gr.ptr, 'z', text, pos, opt)
 end
 
-function xlabel(gr::AbstractGraph, text::UTF8String; pos::Real=1., opt::ASCIIString="")
+function xlabel(gr::AbstractGraph, text::UTF8String; pos::Real=0., opt::ASCIIString="")
     mgl.labelw(gr.ptr, 'x', text, pos, opt)
 end
 
-function ylabel(gr::AbstractGraph, text::UTF8String; pos::Real=1., opt::ASCIIString="")
+function ylabel(gr::AbstractGraph, text::UTF8String; pos::Real=0., opt::ASCIIString="")
     mgl.labelw(gr.ptr, 'y', text, pos, opt)
 end
 
-function zlabel(gr::AbstractGraph, text::UTF8String; pos::Real=1., opt::ASCIIString="")
+function zlabel(gr::AbstractGraph, text::UTF8String; pos::Real=0., opt::ASCIIString="")
     mgl.labelw(gr.ptr, 'z', text, pos, opt)
 end
 

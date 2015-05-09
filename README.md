@@ -48,15 +48,18 @@ An example:
 using MathGL.Capi
 mgl = MathGL.Capi
 
-gr  = mgl.create_graph(1000, 1000)
-mgl.title(gr, "sin C", "", -2)
+gr  = mgl.create_graph(1000, 600)
 dat = mgl.create_data()
-mgl.data_link(dat, 0.8*sin(linspace(0, 2pi, 50)), 50, 1, 1)
+mgl.data_link(dat, 0.8*sin(linspace(-4pi, 4pi, 200)), 200, 1, 1)
+mgl.label(gr, 'x', "x", 0, "")
+mgl.label(gr, 'y', "y", 0, "")
 mgl.box(gr)
+mgl.axis(gr, "xyz", "", "")
+mgl.axis_grid(gr, "xyz", "G|", "")
 mgl.plot(gr, dat, "", "")
-mgl.write_frame(gr, "../graphs/sin_C.png", "")
+mgl.write_frame(gr, "../graphs/sin_C.svg", "")
 ```
-
+![sin_C example](/graphs/sin_C.svg)
 Note however, that the C interface does only limited type checks (so
 expect segfaults when using the wrong argument types).
 
@@ -82,6 +85,20 @@ Some of these deviations of function names can be found in the file
 [changes.md](/changes.md), the most important ones are given
 [below](#changes-to-mathgl).
 
+The same examples as above:
+```julia
+using MathGL
+mgl = MathGL
+
+gr = mgl.Graph(1000, 600)
+mgl.xlabel(gr, "x")
+mgl.ylabel(gr, "y")
+mgl.box(gr)
+mgl.axis(gr, "xyz")
+mgl.grid(gr, "xyz", stl="G|")
+mgl.plot(gr, 0.8*sin(linspace(-4pi, 4pi, 200)))
+mgl.writeframe(gr, "../graphs/sin_julia.svg")
+```
 #### Abusing The Matrix Syntax: Imitating Mgl Scripts in Julia 
 To make it short: The following two code samples are perfectly equivalent.
 *Coming soon*
