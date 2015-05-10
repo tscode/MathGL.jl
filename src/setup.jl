@@ -599,7 +599,10 @@ function importmgld(gr::AbstractGraph, fname::ASCIIString; add::Bool=true)
     mgl.import_mgld(gr.ptr, fname, add)
 end
 
-#TODO:show image function
+#=#TODO:show image function=#
+function showwith(gr::AbstractGraph, viewer::ASCIIString; wait::Bool=true)
+    mgl.show_image(gr.ptr, viewer, wait)
+end
 
 function newframe(gr::AbstractGraph)
     mgl.new_frame(gr.ptr)

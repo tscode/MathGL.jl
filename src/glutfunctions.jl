@@ -1,5 +1,5 @@
 #glut.h
-@getf mgl_create_graph_glut()::HMGL
+@getf mgl_create_graph_glut(draw::DrawCallback, title::Ptr{Cchar}, par::Ptr{Void}, load::LoadCallback)::HMGL
 @getf mgl_glut_toggle_alpha(gr::HMGL)::Void
 @getf mgl_glut_toggle_light(gr::HMGL)::Void
 @getf mgl_glut_toggle_no(gr::HMGL)::Void

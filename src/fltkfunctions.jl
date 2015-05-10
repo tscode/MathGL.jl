@@ -1,5 +1,5 @@
 #fltk.h
-@getf mgl_create_graph_fltk()::HMGL
-@getf mgl_fltk_run()::Cint
-@getf mgl_fltk_thr()::Cint
+@getf libfltk mgl_create_graph_fltk(draw::DrawCallback, title::Ptr{Cchar}, par::Ptr{Void}, load::LoadCallback)::HMGL
+@getf libfltk mgl_fltk_run()::Cint
+@getf libfltk mgl_fltk_thr()::Cint
 

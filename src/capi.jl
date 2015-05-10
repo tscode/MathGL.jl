@@ -8,7 +8,7 @@
 # TODO: Julia bug segfaults when using find_library on libmgl!
 const lib     = "libmgl" #find_library(["libmgl", "libmgl2"])
 const libqt   = Libdl.find_library(["libmgl-qt"])
-const libflkt = Libdl.find_library(["libmgl-flkt"])
+const libfltk = Libdl.find_library(["libmgl-fltk"])
 const libglut = Libdl.find_library(["libmgl-glut"])
 
 typealias HMGL Ptr{Void}
@@ -18,6 +18,10 @@ typealias HADT Ptr{Void}
 typealias HMPR Ptr{Void}
 typealias HMEX Ptr{Void}
 typealias HMAX Ptr{Void}
+
+typealias DrawCallback Ptr{Void}
+typealias LoadCallback Ptr{Void}
+
 
 
 typealias Float Float64
@@ -39,6 +43,6 @@ include("getfunction.jl")
 
 include("functions.jl")
 # For the functions requireing qt/glut/fltk no test were/are conducted
-#=include("qtfunctions.jl")=#
-#=include("glutfunctions.jl")=#
-#=include("fltkfunctions.jl")=#
+include("qtfunctions.jl")
+include("glutfunctions.jl")
+include("fltkfunctions.jl")

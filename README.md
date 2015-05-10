@@ -37,7 +37,7 @@ fitting procedures), but only its capacity to create graphs.
 
 ### Requirements 
 Besides the code of this repository you will need a working and up-to-date
-version of libmgl in a folder that julia can find via `find\_library`. For
+version of libmgl in a folder that julia can find via `find_library`. For
 additional functions (which are *not* supported yet), like qt, glut, etc.
 the corresponding libraries (e.g. libmgl-qt5) must also be installed
 properly.
@@ -141,7 +141,7 @@ Not yet decided ...
 ## TODO
 * Make all plotting functions accessible from julia
 * Provide some more utility functions
-* Write some documentation / tutorials for the Usage of MathGL
+* Write some documentation / tutorials for the usage of MathGL
 * Implement the gui graph classes of MathGL
 * Testing! Not much is tested, there are certainly tons of bugs yet
 undiscovered (but easy to resolve)
