@@ -123,7 +123,7 @@ gr = MathGL.Graph(800, 500)
     axis
     grid
     plot 0.8*sin(linspace(-4pi, 4pi, 200))
-    write"sin_mgl.png"
+    write "sin_mgl.png"
 ]
 ```
 This is nice because the syntax given in the macro resembles the
