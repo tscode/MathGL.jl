@@ -86,10 +86,10 @@ the details). This was done for several reasons:
   fit well
 * An abuse of julia's matrix construction syntax makes it possible to
   write mgl script code directly in julia (with some slight
-  alterations, see [below](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia).
+  alterations, see [below](#abusing-the-matrix-syntax-imitating-mgl-scripts-in-julia)).
 
 There are, however, important functions that are not covered by the
-scripting language (which is designed to handle one graph only).
+scripting language, which is designed to handle one graph only.
 Some of these deviations of function names can be found in the file
 [changes.md](/changes.md), the most important ones are given
 [below](#changes-to-mathgl).
@@ -106,7 +106,7 @@ mgl.box(gr)
 mgl.axis(gr)
 mgl.grid(gr)
 mgl.plot(gr, 0.8*sin(linspace(-4pi, 4pi, 200)))
-mgl.writeframe(gr, "sin_julia.png")
+mgl.write(gr, "sin_julia.png")
 ```
 
 #### Abusing the Matrix Syntax: Imitating MathGL Scripts in Julia 
@@ -123,7 +123,7 @@ gr = MathGL.Graph(800, 500)
     axis
     grid
     plot 0.8*sin(linspace(-4pi, 4pi, 200))
-    writeframe "sin_mgl.png"
+    write"sin_mgl.png"
 ]
 ```
 This is nice because the syntax given in the macro resembles the

@@ -523,7 +523,7 @@ function endgroup(gr::AbstractGraph)
 end
 
 # File Export
-function writeframe(gr::AbstractGraph, fname::ASCIIString="", descr::ASCIIString="")
+function write(gr::AbstractGraph, fname::ASCIIString="", descr::ASCIIString="")
     mgl.write_frame(gr.ptr, fname, descr)
 end
 

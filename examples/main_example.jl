@@ -192,4 +192,4 @@ b = 0.6cos(2pi*x).*cos(3pi*y') + 0.4cos(3pi*x.*y')
     cont  a stl="k"
 ]
 
-MathGL.writeframe(gr, "../graphs/main_example.png")
+MathGL.write(gr, "../graphs/main_example.png")

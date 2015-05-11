@@ -118,7 +118,7 @@ width        =  MathGL.width
 writebmp     =  MathGL.writebmp
 writebps     =  MathGL.writebps
 writeeps     =  MathGL.writeeps
-writeframe   =  MathGL.writeframe
+write        =  MathGL.write
 writegif     =  MathGL.writegif
 writejpg     =  MathGL.writejpg
 writejson    =  MathGL.writejson
@@ -247,7 +247,7 @@ export width
 export writebmp
 export writebps
 export writeeps
-export writeframe
+export write
 export writegif
 export writejpg
 export writejson
