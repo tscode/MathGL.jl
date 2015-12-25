@@ -32,8 +32,12 @@ include("1dplot.jl")
 include("2dplot.jl")
 # Plot 3d data
 include("3dplot.jl")
-# Ploting functions that are in the "dual plot" section of the mathgl manual
+# Plotting functions that are in the "dual plot" section of the mathgl manual
 include("dualplot.jl")
+# Plot vector fields, flows, ect., "vector fields" section in the mathgl manual
+include("vectorplot.jl")
+# Special plots, contained in section "other plotting" in the mathgl manual
+include("specialplot.jl")
 
 
 # Macros to simulate the mgl scripting language / maybe more in the future
