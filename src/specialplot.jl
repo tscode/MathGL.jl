@@ -61,21 +61,21 @@ function contfz(gr::AbstractGraph, v::Array{mgl.Float}, a::Array{mgl.Float}, sva
     mgl.contf_z_val(gr.ptr, Data(v).ptr, Data(a).ptr, stl, sval, opt)
 end
 
-function fplot(gr::AbstractGraph, eqY::ASCIIString; stl::ASCIIString, opt::ASCIIString="")
+function fplot(gr::AbstractGraph, eqY::ASCIIString; stl::ASCIIString="", opt::ASCIIString="")
     mgl.fplot(gr.ptr, eqY, stl, opt)
 end
 
 function fplot(gr::AbstractGraph, eqX::ASCIIString, eqY::ASCIIString, eqZ::ASCIIString; 
-                                  stl::ASCIIString, opt::ASCIIString="")
+                                  stl::ASCIIString="", opt::ASCIIString="")
     mgl.fplot_xyz(gr.ptr, eqX, eqY, eqZ, stl, opt)
 end
 
-function fsurf(gr::AbstractGraph, eqZ::ASCIIString; stl::ASCIIString, opt::ASCIIString="")
+function fsurf(gr::AbstractGraph, eqZ::ASCIIString; stl::ASCIIString="", opt::ASCIIString="")
     mgl.fsurf(gr.ptr, eqZ, stl, opt)
 end
 
 function fsurf(gr::AbstractGraph, eqX::ASCIIString, eqY::ASCIIString, eqZ::ASCIIString; 
-                                  stl::ASCIIString, opt::ASCIIString="")
+                                  stl::ASCIIString="", opt::ASCIIString="")
     mgl.fsurf_xyz(gr.ptr, eqX, eqY, eqZ, stl, opt)
 end
 
@@ -155,7 +155,7 @@ end
 function dots(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float},
                                  a::Array{mgl.Float}, c::Array{mgl.Float};
                                  stl::ASCIIString="", opt::ASCIIString="")
-    mgl.dots_ca(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, Data(c).ptr, Data(a).ptr stl, opt)
+    mgl.dots_ca(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, Data(c).ptr, Data(a).ptr, stl, opt)
 end
 
 function crust(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float};

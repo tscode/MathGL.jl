@@ -36,13 +36,25 @@ colorid      =  MathGL.colorid
 columnplot   =  MathGL.columnplot
 combine      =  MathGL.combine
 cone         =  MathGL.cone
+contfx       =  MathGL.contfx
+contfy       =  MathGL.contfy
+contfz       =  MathGL.contfz
+contx        =  MathGL.contx
+conty        =  MathGL.conty
+contz        =  MathGL.contz
 crange       =  MathGL.crange
+crust        =  MathGL.crust
 ctick        =  MathGL.ctick
 curve        =  MathGL.curve
 cut          =  MathGL.cut
 defaultfont  =  MathGL.defaultfont
 delframe     =  MathGL.delframe
+densx        =  MathGL.densx
+densy        =  MathGL.densy
+densz        =  MathGL.densz
+dew          =  MathGL.dew
 diffuse      =  MathGL.diffuse
+dots         =  MathGL.dots
 drop         =  MathGL.drop
 ellipse      =  MathGL.ellipse
 endframe     =  MathGL.endframe
@@ -52,14 +64,18 @@ errbox       =  MathGL.errbox
 exportmgld   =  MathGL.exportmgld
 face         =  MathGL.face
 facenum      =  MathGL.facenum
+flow         =  MathGL.flow
 fog          =  MathGL.fog
 font         =  MathGL.font
+fplot        =  MathGL.fplot
+fsurf        =  MathGL.fsurf
 getframe     =  MathGL.getframe
 getheight    =  MathGL.getheight
 getnumframe  =  MathGL.getnumframe
 getrgb       =  MathGL.getrgb
 getrgba      =  MathGL.getrgba
 getwidth     =  MathGL.getwidth
+grad         =  MathGL.grad
 gridplot     =  MathGL.gridplot
 height       =  MathGL.height
 importmgld   =  MathGL.importmgld
@@ -81,9 +97,12 @@ origin       =  MathGL.origin
 origintick   =  MathGL.origintick
 palette      =  MathGL.palette
 perspective  =  MathGL.perspective
+pipe         =  MathGL.pipe
 plotfactor   =  MathGL.plotfactor
+plot         =  MathGL.plot
 plotid       =  MathGL.plotid
 polygon      =  MathGL.polygon
+quadplot     =  MathGL.quadplot
 quality      =  MathGL.quality
 ranges       =  MathGL.ranges
 rasterize    =  MathGL.rasterize
@@ -112,13 +131,18 @@ tickshift    =  MathGL.tickshift
 tickskip     =  MathGL.tickskip
 title        =  MathGL.title
 transptype   =  MathGL.transptype
+traj         =  MathGL.traj
+tricont      =  MathGL.tricont
+triplot      =  MathGL.triplot
 tuneticks    =  MathGL.tuneticks
+vect         =  MathGL.vect
+vect3        =  MathGL.vect3
 view         =  MathGL.view
 width        =  MathGL.width
 writebmp     =  MathGL.writebmp
 writebps     =  MathGL.writebps
 writeeps     =  MathGL.writeeps
-write        =  MathGL.write
+#=write        =  MathGL.write=#
 writegif     =  MathGL.writegif
 writejpg     =  MathGL.writejpg
 writejson    =  MathGL.writejson
@@ -165,13 +189,25 @@ export colorid
 export columnplot
 export combine
 export cone
+export contx
+export conty
+export contz
+export contfx
+export contfy
+export contfz
 export crange
+export crust
 export ctick
 export curve
 export cut
 export defaultfont
 export delframe
+export densx
+export densy
+export densz
+export dew
 export diffuse
+export dots
 export drop
 export ellipse
 export endframe
@@ -181,14 +217,18 @@ export errbox
 export exportmgld
 export face
 export facenum
+export flow
 export fog
 export font
+export fplot
+export fsurf
 export getframe
 export getheight
 export getnumframe
 export getrgb
 export getrgba
 export getwidth
+export grad
 export gridplot
 export height
 export importmgld
@@ -210,9 +250,12 @@ export origin
 export origintick
 export palette
 export perspective
+export pipe
 export plotfactor
+export plot
 export plotid
 export polygon
+export quadplot
 export quality
 export ranges
 export rasterize
@@ -241,13 +284,18 @@ export tickshift
 export tickskip
 export title
 export transptype
+export traj
+export tricont
+export triplot
 export tuneticks
 export view
+export vect
+export vect3
 export width
 export writebmp
 export writebps
 export writeeps
-export write
+#=export write=#
 export writegif
 export writejpg
 export writejson
