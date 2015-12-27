@@ -19,7 +19,7 @@ gr = MathGL.Graph(2400, 1200)
     # Labels for the x and y axis
     xlabel "x"; ylabel "y"
     # The x-values (as array, not as linspace!) that shall be used for plotting
-    x = 1linspace(-2pi,2pi,100)
+    x = Array(linspace(-2pi,2pi,100))
     # The values for the two curves
     y1 = 0.5sin(x); y2 = 0.5cos(x)
     # Plot with style options "B" (dark Blue) and "G" (dark green)
@@ -66,7 +66,7 @@ gr = MathGL.Graph(2400, 1200)
     # z axis
     rotate 50 -60
     # Plot 6 circles
-    x = 1linspace(0,1,50)
+    x = Array(linspace(0,1,50))
     o = ones(50)
     # The numbers in the style string determine the width of the line to be
     # drawn
@@ -100,7 +100,7 @@ gr = MathGL.Graph(2400, 1200)
     # the area marked is the area between the x-axis defined by the origin
     origin 0 0
     # Prepare data
-    x = 1linspace(-2pi,2pi,100)
+    x = Array(linspace(-2pi,2pi,100))
     y1 = 0.5sin(x)+0.4sin(3x); y2 = 0.8cos(x); y3 = -0.3cos(x)
     # Do the plots. g,G: light,dark green; k: black; y: yellow, c: cyan, b:
     # blue, #: special style for the area drawing: draw lines instead of
@@ -153,7 +153,7 @@ gr = MathGL.Graph(2400, 1200)
 ]
 
 # Prepare some data that will be used in the next two plots
-v = 1linspace(-1,1,9)
+v = Array(linspace(-1,1,9))
 x = Array(0:49)/49
 y = Array(0:39)/39
 a = 0.6sin(2pi*x).*sin(3pi*y') + 0.4cos(3pi*x.*y')

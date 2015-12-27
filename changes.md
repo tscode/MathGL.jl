@@ -1,6 +1,6 @@
 Overview of the changes when compared to the scripting interface of Mathgl
 
-* call everything stl instead of pen, sch, ...
+* call everything stl instead of pen, sch, fnt ...
 * xtick function: lbl argument to xtick is not of the form
   "label1\nlabel2\nlabel3\n..." but instead an array 
   Array["label1", "label2", "label3", ...]

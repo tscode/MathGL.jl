@@ -275,55 +275,55 @@ function ctick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::UTF
 end
 
 function xtick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'x', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_str(gr.ptr, 'x', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ytick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'y', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_str(gr.ptr, 'y', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ztick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'z', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_str(gr.ptr, 'z', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ctick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'c', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_str(gr.ptr, 'c', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
 function xtick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'x', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_wcs(gr.ptr, 'x', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ytick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'y', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_wcs(gr.ptr, 'y', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ztick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'z', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_wcs(gr.ptr, 'z', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ctick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'c', reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_wcs(gr.ptr, 'c', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
 function xtick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'x', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_val(gr.ptr, 'x', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ytick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ztick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ctick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'c', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_val(gr.ptr, 'c', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
 function xtick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'x', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_valw(gr.ptr, 'x', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ytick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ztick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 function ctick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'c', Data(val).ptr, reduce(*, map(x->x*"\n", lbl)), add)
+    mgl.set_ticks_valw(gr.ptr, 'c', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
 # For Resetting

@@ -4,12 +4,12 @@ macro mglplot(graph, commands)
     # Check if the format provided is right
     if typeof(graph)    != Symbol || 
        typeof(commands) != Expr
-        error("Arguments have wrong type. Need (Symbol, Expr),"  *
+        Base.error("Arguments have wrong type. Need (Symbol, Expr),"  *
               "given was ($(typeof(graph)), $(typeof(commands)))")
     end
     if commands.head != :vcat
-        error("Can't understand the sequence of mgl commands. " *
-              "Expected symbol ':vcat'.")
+        Base.error("Can't understand the sequence of mgl commands. " *
+                   "Expected symbol ':vcat'.")
     end
     # Initialize empty quote block that is to be filled with mgl calls
     block = Expr(:block)

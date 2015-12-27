@@ -5,8 +5,8 @@
 # Constants and Types
 #-------------------------------------------------------------------------#
 
-# TODO: Julia bug segfaults when using find_library on libmgl!
-const lib     = "libmgl" #find_library(["libmgl", "libmgl2"])
+# TODO: Julia bug segfaults when using find_library on libmgl! <-- seems to be debugged
+const lib     = Libdl.find_library(["libmgl", "libmgl2"])
 const libqt   = Libdl.find_library(["libmgl-qt"])
 const libfltk = Libdl.find_library(["libmgl-fltk"])
 const libglut = Libdl.find_library(["libmgl-glut"])
@@ -21,7 +21,6 @@ typealias HMAX Ptr{Void}
 
 typealias DrawCallback Ptr{Void}
 typealias LoadCallback Ptr{Void}
-
 
 
 typealias Float Float64
