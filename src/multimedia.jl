@@ -15,15 +15,25 @@ function image_string(gr::Graph, format)
 end
 
 function show(io::IO, ::MIME"image/png", gr::Graph)
-    write(io, image_string(gr, :png))
+    Base.write(io, image_string(gr, :png))
 end
 
 function show(io::IO, ::MIME"image/svg+xml", gr::Graph)
-    write(io, image_string(gr, :svg))
+    Base.write(io, image_string(gr, :svg))
 end
 
-function show(io::IO, ::MIME"text/jpeg", gr::Graph)
-    write(io, image_string(gr, :jpg))
+function show(io::IO, ::MIME"image/jpeg", gr::Graph)
+    Base.write(io, image_string(gr, :jpg))
 end
 
+function show(io::IO, ::MIME"image/gif", gr::Graph)
+    Base.write(io, image_string(gr, :gif))
+end
 
+function show(io::IO, ::MIME"image/bmp", gr::Graph)
+    Base.write(io, image_string(gr, :bmp))
+end
+
+function show(io::IO, ::MIME"application/postscript", gr::Graph)
+    Base.write(io, image_string(gr, :eps))
+end
