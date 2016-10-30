@@ -391,7 +391,7 @@ function stickplot(gr::Graph, num::Int, ind::Int, tet::Real, phi::Real)
     cmgl.stickplot(gr.ptr, num, ind-1, tet, phi)
 end
 
-function title(gr::Graph, txt::String; stl::String="", size::Int=-2)
+function title(gr::Graph, txt::String; stl::String="", size::Real=-2)
     cmgl.title(gr.ptr, txt, stl, size)
 end
 #=function title(gr::Graph, txt::UTF8String; stl::String="", size::Int=-2)=#
