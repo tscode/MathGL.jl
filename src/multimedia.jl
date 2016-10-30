@@ -6,11 +6,11 @@ function show(io::IO, gr::Graph)
 end
 
 function image_string(gr::Graph, format)
-    name = tempname()"_." * string(format)
+    name = tempname()"_."string(format)
     write(gr, name)
     tmpfile = open(name, "r")
-    str = readbytes(tmpfile)
-    close(file)
+    str = read(tmpfile)
+    close(tmpfile)
     str
 end
 
