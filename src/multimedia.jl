@@ -6,12 +6,12 @@ function show(io::IO, gr::Graph)
 end
 
 function image_string(gr::Graph, format)
-    name = tempname()"_."string(ext)
+    name = tempname()"_." * string(ext)
     writeframe(gr, name)
     tmpfile = open(name, "r")
-    string = readbytes(tmpfile)
+    str = readbytes(tmpfile)
     close(file)
-    string
+    str
 end
 
 function show(io::IO, ::MIME"image/png", gr::Graph)
