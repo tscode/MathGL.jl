@@ -6,7 +6,7 @@ gr = MathGL.Graph(2400, 1200)
 # Standard sine and cosine plots with grid ect.
 @mglplot gr [
     # Give position of the next plot: In a grid of 4x2 plots take the first (top left)
-    subplot 4 2 0
+    subplot 4 2 1
     # The title for this subplot
     title "Sine and cosine plot"
     # The xticks, given as array of values and array of corresponding strings
@@ -32,7 +32,7 @@ gr = MathGL.Graph(2400, 1200)
 # Some log-log plot 
 @mglplot gr [
     # Same as before
-    subplot 4 2 1
+    subplot 4 2 2
     title "Log-log plot"
     # This time: set x and y range in one command, ranges, instead of
     # xrange and yrange
@@ -54,7 +54,7 @@ gr = MathGL.Graph(2400, 1200)
 
 # Using cylindrical coordinates
 @mglplot gr [
-    subplot 4 2 2
+    subplot 4 2 3
     title "Cylindrical plot"
     # This range will be fed to the transformation of cylindrical coordinates
     # The xrange has the role of the angle / times 2pi, so it is between 0 and 1
@@ -161,7 +161,7 @@ b = 0.6cos(2pi*x).*cos(3pi*y') + 0.4cos(3pi*x.*y')
 
 # A surface plot with density plot at the bottom
 @mglplot gr [
-    subplot 4 2 3
+    subplot 4 2 7
     title "Surface plot"
     ranges -1 1 -1 1 -1 1
     light true
@@ -178,7 +178,7 @@ b = 0.6cos(2pi*x).*cos(3pi*y') + 0.4cos(3pi*x.*y')
 
 # Create a very nice contour plot using 3 different ways of drawing contours
 @mglplot gr [
-    subplot 4 2 7
+    subplot 4 2 8
     title "Contour plot"
     light true
     rotate 50 60

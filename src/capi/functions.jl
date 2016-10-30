@@ -80,6 +80,8 @@
 @getf lib mgl_set_axis_stl(gr::HMGL, stl::Ptr{Cchar}, tck::Ptr{Cchar}, sub::Ptr{Cchar})::Void
 @getf lib mgl_adjust_ticks(gr::HMGL, dir::Ptr{Cchar})::Void
 @getf lib mgl_set_ticks(gr::HMGL, dir::Cchar, d::Cdouble, ns::Cint, org::Cdouble)::Void
+@getf lib mgl_set_ticks_fact(gr::HMGL, dir::Cchar, d::Cdouble, ns::Cint, org::Cdouble, fact::Ptr{Cchar})::Void
+@getf lib mgl_set_ticks_factw(gr::HMGL, dir::Cchar, d::Cdouble, ns::Cint, org::Cdouble, fact::Ptr{Cwchar_t})::Void
 @getf lib mgl_set_ticks_str(gr::HMGL, dir::Cchar, lbl::Ptr{Cchar}, add::Cint)::Void
 @getf lib mgl_set_ticks_wcs(gr::HMGL, dir::Cchar, lbl::Ptr{Cwchar_t}, add::Cint)::Void
 @getf lib mgl_set_ticks_val(gr::HMGL, dir::Cchar, val::HCDT, lbl::Ptr{Cchar}, add::Cint)::Void
@@ -131,8 +133,8 @@
 @getf lib mgl_write_json(gr::HMGL, fname::Ptr{Cchar}, descr::Ptr{Cchar})::Void
 @getf lib mgl_write_json_z(gr::HMGL, fname::Ptr{Cchar}, descr::Ptr{Cchar})::Void
 @getf lib mgl_get_json(gr::HMGL)::Ptr{Char}
-@getf lib mgl_get_rgb(gr::HMGL)::Ptr{Uint8}
-@getf lib mgl_get_rgba(gr::HMGL)::Ptr{Uint8}
+@getf lib mgl_get_rgb(gr::HMGL)::Ptr{UInt8}
+@getf lib mgl_get_rgba(gr::HMGL)::Ptr{UInt8}
 @getf lib mgl_set_obj_id(gr::HMGL, id::Cint)::Void
 @getf lib mgl_get_obj_id(gr::HMGL, x::Cint, y::Cint)::Cint
 @getf lib mgl_get_spl_id(gr::HMGL, x::Cint, y::Cint)::Cint
@@ -336,8 +338,8 @@
 @getf lib mgl_cexpr_eval_v(ex::HAEX, vars::Ptr{Dual})::Dual
 
 #data_cf.h
-@getf lib mgl_srnd(seed::Clong)::Void
-@getf lib mgl_rnd()::Cdouble
+#=@getf lib mgl_srnd(seed::Clong)::Void=#
+#=@getf lib mgl_rnd()::Cdouble=#
 @getf lib mgl_ipow(x::Cdouble, n::Cint)::Cdouble
 @getf lib mgl_get_time(time::Ptr{Cchar}, fmt::Ptr{Cchar})::Cdouble
 @getf lib mgl_create_data()::HMDT
@@ -432,7 +434,7 @@
 @getf lib mgl_fft_free(wt::Ptr{Void})::Void
 @getf lib mgl_fft_free_thr(wt::Ptr{Void})::Void
 @getf lib mgl_fft(x::Ptr{Cdouble}, s::Clong, n::Clong, wt::Ptr{Void}, ws::Ptr{Void}, inv::Cint)::Void
-@getf lib mgl_clear_fft()::Void
+#=@getf lib mgl_clear_fft()::Void=#
 @getf lib mgl_data_spline(dat::HCDT, x::Float, y::Float, z::Float)::Float
 @getf lib mgl_data_linear(dat::HCDT, x::Float, y::Float, z::Float)::Float
 @getf lib mgl_data_spline_ext(dat::HCDT, x::Float, y::Float, z::Float, dx::Ptr{Float}, dy::Ptr{Float}, dz::Ptr{Float})::Float

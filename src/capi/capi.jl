@@ -1,11 +1,12 @@
 # This is a collection of C functions provided by the
 # plotting library MathGL
-# 
-#
+ 
+
+
 # Constants and Types
 #-------------------------------------------------------------------------#
 
-# TODO: Julia bug segfaults when using find_library on libmgl! <-- seems to be debugged
+
 const lib     = Libdl.find_library(["libmgl", "libmgl2"])
 const libqt   = Libdl.find_library(["libmgl-qt"])
 const libfltk = Libdl.find_library(["libmgl-fltk"])
@@ -29,6 +30,9 @@ typealias Dual  Complex{Float}
 include("constants.jl")
 
 
+
+
+
 # Functions
 #-------------------------------------------------------------------------#
 
@@ -41,6 +45,7 @@ include("getfunction.jl")
 # be like in the C api).
 
 include("functions.jl")
+
 # For the functions requireing qt/glut/fltk no test were/are conducted
 include("qtfunctions.jl")
 include("glutfunctions.jl")

@@ -15,7 +15,7 @@
 macro getf(lib, fun)
     # Name of the function
     cname     = string(fun.args[1].args[1])                # :mgl_surf
-    jname     = symbol(replace(string(cname), "mgl_", "")) # :surf
+    jname     = Symbol(replace(string(cname), "mgl_", "")) # :surf
     arguments = fun.args[1].args[2:end]                    # [:(gr::HMGL), :(z::HCDT), ...]
 
     # Get info out of arguments of 'fun'

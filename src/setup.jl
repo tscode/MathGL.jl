@@ -1,753 +1,689 @@
 # Setup functions for MathGL.jl
 
 # resetting all parameters, clear graph
-function reset(gr::AbstractGraph)
-    mgl.set_def_param(gr.ptr)
+function reset(gr::Graph)
+    cmgl.set_def_param(gr.ptr)
 end
 
 # Transparency options
-function alpha(gr::AbstractGraph, enable::Bool)
-    mgl.set_alpha(gr.ptr, enable)
+function alpha(gr::Graph, enable::Bool)
+    cmgl.set_alpha(gr.ptr, enable)
 end
 
-function alpha(gr::AbstractGraph, val::Real)
-    mgl.set_alpha_default(gr.ptr, val)
+function alpha(gr::Graph, val::Real)
+    cmgl.set_alpha_default(gr.ptr, val)
 end
 
-function transptype(gr::AbstractGraph, typ::Int)
-    mgl.set_transp_type(gr.ptr, typ)
+function transptype(gr::Graph, typ::Int)
+    cmgl.set_transp_type(gr.ptr, typ)
 end
 
 # Lightning options
-function light(gr::AbstractGraph, enable::Bool)
-    mgl.set_light(gr.ptr, enable)
+function light(gr::Graph, enable::Bool)
+    cmgl.set_light(gr.ptr, enable)
 end
 
-function light(gr::AbstractGraph, n::Int, enable::Bool)
-    mgl.set_light_n(gr.ptr, n, enable)
+function light(gr::Graph, n::Int, enable::Bool)
+    cmgl.set_light_n(gr.ptr, n, enable)
 end
 
-function light(gr::AbstractGraph, n::Int, dx::Real, dy::Real, dz::Real; 
-               c::ASCIIString="w", bright::Real=0.5, ap::Real=0.)
-    mgl.add_light_ext(gr.ptr, n, dx, dy, dz, c, bright, ap)
+function light(gr::Graph, n::Int, dx::Real, dy::Real, dz::Real; 
+               c::String="w", bright::Real=0.5, ap::Real=0.)
+    cmgl.add_light_ext(gr.ptr, n, dx, dy, dz, c, bright, ap)
 end
 
-function light(gr::AbstractGraph, n::Int, rx::Real, ry::Real, rz::Real, dx::Real, dy::Real, dz::Real; 
-               c::ASCIIString="w", bright::Real=0.5, ap::Real=0.)
-    mgl.add_light_loc(gr.ptr, n, rx, ry, rz, dx, dy, dz, c, bright, ap)
+function light(gr::Graph, n::Int, rx::Real, ry::Real, rz::Real, dx::Real, dy::Real, dz::Real; 
+               c::String="w", bright::Real=0.5, ap::Real=0.)
+    cmgl.add_light_loc(gr.ptr, n, rx, ry, rz, dx, dy, dz, c, bright, ap)
 end
 
-function diffuse(gr::AbstractGraph, bright::Real)
-    mgl.set_difbr(gr.ptr, bright)
+function diffuse(gr::Graph, bright::Real)
+    cmgl.set_difbr(gr.ptr, bright)
 end
 
-function ambient(gr::AbstractGraph, bright::Real)
-    mgl.set_ambbr(gr.ptr, bright)
+function ambient(gr::Graph, bright::Real)
+    cmgl.set_ambbr(gr.ptr, bright)
 end
 
 # Fog
-function fog(gr::AbstractGraph, d::Real; dz::Real=0.25)
-    mgl.set_fog(gr.ptr, d, dz)
+function fog(gr::Graph, d::Real; dz::Real=0.25)
+    cmgl.set_fog(gr.ptr, d, dz)
 end
 
 # Default widths, sizes, numbers, names...
-function barwidth(gr::AbstractGraph, val::Real)
-    mgl.set_bar_width(gr.ptr, val)
+function barwidth(gr::Graph, val::Real)
+    cmgl.set_bar_width(gr.ptr, val)
 end
 
-function marksize(gr::AbstractGraph, val::Real)
-    mgl.set_mark_size(gr.ptr, val)
+function marksize(gr::Graph, val::Real)
+    cmgl.set_mark_size(gr.ptr, val)
 end
 
-function arrowsize(gr::AbstractGraph, val::Real)
-    mgl.set_arrow_size(gr.ptr, val)
+function arrowsize(gr::Graph, val::Real)
+    cmgl.set_arrow_size(gr.ptr, val)
 end
 
-function meshnum(gr::AbstractGraph, n::Int)
-    mgl.set_meshnum(gr.ptr, n)
+function meshnum(gr::Graph, n::Int)
+    cmgl.set_meshnum(gr.ptr, n)
 end
 
-function facenum(gr::AbstractGraph, n::Int)
-    mgl.set_facenum(gr.ptr, n)
+function facenum(gr::Graph, n::Int)
+    cmgl.set_facenum(gr.ptr, n)
 end
 
-function plotid(gr::AbstractGraph, id::ASCIIString)
-    mgl.set_plotid(gr.ptr, id)
+function plotid(gr::Graph, id::String)
+    cmgl.set_plotid(gr.ptr, id)
 end
 
-function plotid(gr::AbstractGraph)
-    bytestring(mgl.get_plotid(gr.ptr))
+function plotid(gr::Graph)
+    bytestring(cmgl.get_plotid(gr.ptr))
 end
 
 # Cutting (excluding) points from drawing:
-function cut(gr::AbstractGraph, enable::Bool)
-    mgl.set_cut(gr.ptr, enable)
+function cut(gr::Graph, enable::Bool)
+    cmgl.set_cut(gr.ptr, enable)
 end
 
-function cut(gr::AbstractGraph, x1::Real, y1::Real, z1::Real, x2::Real, y2::Real, z2::Real)
-    mgl.set_cut_box(gr.ptr, x1, y1, z1, x2, y2, z2)
+function cut(gr::Graph, x1::Real, y1::Real, z1::Real, x2::Real, y2::Real, z2::Real)
+    cmgl.set_cut_box(gr.ptr, x1, y1, z1, x2, y2, z2)
 end
 
-function cut(gr::AbstractGraph, cond::ASCIIString)
-    mgl.set_cutoff(gr.ptr, enable)
+function cut(gr::Graph, cond::String)
+    cmgl.set_cutoff(gr.ptr, enable)
 end
 
 
 # Text and font settings
-function rotatetext(gr::AbstractGraph, enable::Bool)
-    mgl.set_rotated_text(gr.ptr, enable)
+function rotatetext(gr::Graph, enable::Bool)
+    cmgl.set_rotated_text(gr.ptr, enable)
 end
 
-function loadfont(gr::AbstractGraph, name::ASCIIString, path::ASCIIString="")
-    mgl.load_font(gr.ptr, name, path)
+function loadfont(gr::Graph, name::String, path::String="")
+    cmgl.load_font(gr.ptr, name, path)
 end
 
-function font(gr::AbstractGraph, fnt::ASCIIString)
-    mgl.set_font_def(gr.ptr, fnt)
+function font(gr::Graph, fnt::String)
+    cmgl.set_font_def(gr.ptr, fnt)
 end
 
-function font(gr::AbstractGraph, val::Real)
-    mgl.set_font_size(gr.ptr, val)
+function font(gr::Graph, val::Real)
+    cmgl.set_font_size(gr.ptr, val)
 end
 
-function font(gr::AbstractGraph, fnt::ASCIIString, val::Real)
-    mgl.set_font_def(gr.ptr, fnt)
-    mgl.set_font_size(gr.ptr, val)
+function font(gr::Graph, fnt::String, val::Real)
+    cmgl.set_font_def(gr.ptr, fnt)
+    cmgl.set_font_size(gr.ptr, val)
 end
 
-function font(gr::AbstractGraph, from::AbstractGraph)
-    mgl.copy_font(gr.ptr, from.ptr)
+function font(gr::Graph, from::Graph)
+    cmgl.copy_font(gr.ptr, from.ptr)
 end
 
-function restorefont(gr::AbstractGraph)
-    mgl.restore_font(gr.ptr)
+function restorefont(gr::Graph)
+    cmgl.restore_font(gr.ptr)
 end
 
-function defaultfont(name::ASCIIString, path::ASCIIString="")
-    mgl.def_font(name, path)
+function defaultfont(name::String, path::String="")
+    cmgl.def_font(name, path)
 end
 
 # Color palette, colors, ...
-function palette(gr::AbstractGraph, colors::ASCIIString)
-    mgl.set_palette(gr.ptr, colors)
+function palette(gr::Graph, colors::String)
+    cmgl.set_palette(gr.ptr, colors)
 end
 
-function scheme(gr::AbstractGraph, sch::ASCIIString)
-    mgl.set_def_sch(gr.ptr, sch)
+function scheme(gr::Graph, sch::String)
+    cmgl.set_def_sch(gr.ptr, sch)
 end
 
 function colorid(id::Char, r::Real, g::Real, b::Real)
-    mgl.set_color(id, r, g, b)
+    cmgl.set_color(id, r, g, b)
 end
 
 # Masks
-function mask(id::Char, hex::ASCIIString)
-    mgl.set_mask(id, hex)
+function mask(id::Char, hex::String)
+    cmgl.set_mask(id, hex)
 end
 
 function mask(id::Char, hex::Integer)
-    mgl.set_mask(id, hex)
+    cmgl.set_mask(id, hex)
 end
 
-function mask(gr::AbstractGraph, angle::Integer)
-    mgl.set_mask_angle(gr.ptr, angle)
+function mask(gr::Graph, angle::Integer)
+    cmgl.set_mask_angle(gr.ptr, angle)
 end
 
 # TODO: Error handling
 # TODO: Stop drawing
-function stop(gr::AbstractGraph, enable::Bool=true)
-    mgl.ask_stop(gr.ptr, enable)
+function stop(gr::Graph, enable::Bool=true)
+    cmgl.ask_stop(gr.ptr, enable)
 end
 
 # Ranges (partially done) TODO: allow ranges to be set according to data
-function xrange(gr::AbstractGraph, x1::Real, x2::Real; add::Bool=false)
+function xrange(gr::Graph, x1::Real, x2::Real; add::Bool=false)
     if add
-        mgl.add_range_val(gr.ptr, 'x', x1, x2)
+        cmgl.add_range_val(gr.ptr, 'x', x1, x2)
     else
-        mgl.set_range_val(gr.ptr, 'x', x1, x2)
+        cmgl.set_range_val(gr.ptr, 'x', x1, x2)
     end
 end
 
-function xrange(gr::AbstractGraph, x::Array{mgl.Float})
-    mgl.set_range_val(gr.ptr, 'x', minimum(x), maximum(x))
+function xrange(gr::Graph, x::Array{cmgl.Float})
+    cmgl.set_range_val(gr.ptr, 'x', minimum(x), maximum(x))
 end
 
-function yrange(gr::AbstractGraph, y1::Real, y2::Real; add::Bool=false)
+function yrange(gr::Graph, y1::Real, y2::Real; add::Bool=false)
     if add
-        mgl.add_range_val(gr.ptr, 'y', y1, y2)
+        cmgl.add_range_val(gr.ptr, 'y', y1, y2)
     else
-        mgl.set_range_val(gr.ptr, 'y', y1, y2)
+        cmgl.set_range_val(gr.ptr, 'y', y1, y2)
     end
 end
 
-function yrange(gr::AbstractGraph, y::Array{mgl.Float})
-    mgl.set_range_val(gr.ptr, 'y', minimum(y), maximum(y))
+function yrange(gr::Graph, y::Array{cmgl.Float})
+    cmgl.set_range_val(gr.ptr, 'y', minimum(y), maximum(y))
 end
 
-function zrange(gr::AbstractGraph, z1::Real, z2::Real; add::Bool=false)
+function zrange(gr::Graph, z1::Real, z2::Real; add::Bool=false)
     if add
-        mgl.add_range_val(gr.ptr, 'z', z1, z2)
+        cmgl.add_range_val(gr.ptr, 'z', z1, z2)
     else
-        mgl.set_range_val(gr.ptr, 'z', z1, z2)
+        cmgl.set_range_val(gr.ptr, 'z', z1, z2)
     end
 end
 
-function zrange(gr::AbstractGraph, z::Array{mgl.Float})
-    mgl.set_range_val(gr.ptr, 'z', minimum(z), maximum(z))
+function zrange(gr::Graph, z::Array{cmgl.Float})
+    cmgl.set_range_val(gr.ptr, 'z', minimum(z), maximum(z))
 end
 
-function crange(gr::AbstractGraph, c1::Real, c2::Real; add::Bool=false)
+function crange(gr::Graph, c1::Real, c2::Real; add::Bool=false)
     if add
-        mgl.add_range_val(gr.ptr, 'c', c1, c2)
+        cmgl.add_range_val(gr.ptr, 'c', c1, c2)
     else
-        mgl.set_range_val(gr.ptr, 'c', c1, c2)
+        cmgl.set_range_val(gr.ptr, 'c', c1, c2)
     end
 end
 
-function crange(gr::AbstractGraph, c::Array{mgl.Float})
-    mgl.set_range_val(gr.ptr, 'c', minimum(c), maximum(c))
+function crange(gr::Graph, c::Array{cmgl.Float})
+    cmgl.set_range_val(gr.ptr, 'c', minimum(c), maximum(c))
 end
 
-function ranges(gr::AbstractGraph, x1::Real, x2::Real, y1::Real, y2::Real, z1::Real=0., z2::Real=0.)
-    mgl.set_ranges(gr.ptr, x1, x2, y1, y2, z1, z2)
+function ranges(gr::Graph, x1::Real, x2::Real, y1::Real, y2::Real, z1::Real=0., z2::Real=0.)
+    cmgl.set_ranges(gr.ptr, x1, x2, y1, y2, z1, z2)
 end
 
-function ranges(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float}=[0.])
-    mgl.set_ranges(gr.ptr, minimum(x), maximum(x), minimum(y), maximum(y), minimum(z), maximum(z))
+function ranges(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, z::Array{cmgl.Float}=[0.])
+    cmgl.set_ranges(gr.ptr, minimum(x), maximum(x), minimum(y), maximum(y), minimum(z), maximum(z))
 end
 
-function origin(gr::AbstractGraph, x0::Real, y0::Real, z0::Real=NaN)
-    mgl.set_origin(gr.ptr, x0, y0, z0)
+function origin(gr::Graph, x0::Real, y0::Real, z0::Real=NaN)
+    cmgl.set_origin(gr.ptr, x0, y0, z0)
 end
 
-function zoomaxis(gr::AbstractGraph, x1::Real, y1::Real, z1::Real, x2::Real, y2::Real, z2::Real)
-    mgl.zoom_axis(gr.ptr, x1, y1, z1, x2, y2, z2)
+function zoomaxis(gr::Graph, x1::Real, y1::Real, z1::Real, x2::Real, y2::Real, z2::Real)
+    cmgl.zoom_axis(gr.ptr, x1, y1, z1, x2, y2, z2)
 end
 
 # Curvilinear coordinates
-function coords(gr::AbstractGraph; X::ASCIIString="", Y::ASCIIString="", Z::ASCIIString="", C::ASCIIString="")
-    mgl.set_func(gr.ptr, X, Y, Z, C)
+function coords(gr::Graph, how::Integer=0; X::String="", Y::String="", Z::String="", C::String="")
+    if X == Y == Z == C == ""
+        cmgl.set_coor(gr.ptr, how)
+    else
+        cmgl.set_func(gr.ptr, X, Y, Z, C)
+    end
 end
 
-function coords(gr::AbstractGraph, how::Integer=0)
-    mgl.set_coor(gr.ptr, how)
-end
-
-function ternary(gr::AbstractGraph, tern::Integer)
-    mgl.set_ternary(gr.ptr, tern)
+function ternary(gr::Graph, tern::Integer)
+    cmgl.set_ternary(gr.ptr, tern)
 end
 
 # Ticks TODO: many options for ticks
-function adjust(gr::AbstractGraph, dir::ASCIIString="xyzc")
-    mgl.adjust_ticks(gr.ptr, dir)
+function adjust(gr::Graph, dir::String="xyzc")
+    cmgl.adjust_ticks(gr.ptr, dir)
 end
 
-function xtick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::ASCIIString="")
-    mgl.set_ticks_fact(gr.ptr, 'x', dir, d, ns, org, fact)
+function xtick(gr::Graph, d::Real=0; ns::Int=0, org::Real=NaN, fact::String="")
+    cmgl.set_ticks_fact(gr.ptr, 'x', d, ns, org, fact)
 end
 
-function ytick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::ASCIIString="")
-    mgl.set_ticks_fact(gr.ptr, 'y', dir, d, ns, org, fact)
+function ytick(gr::Graph, d::Real=0; ns::Int=0, org::Real=NaN, fact::String="")
+    cmgl.set_ticks_fact(gr.ptr, 'y', d, ns, org, fact)
 end
 
-function ztick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::ASCIIString="")
-    mgl.set_ticks_fact(gr.ptr, 'z', dir, d, ns, org, fact)
+function ztick(gr::Graph, d::Real=0; ns::Int=0, org::Real=NaN, fact::String="")
+    cmgl.set_ticks_fact(gr.ptr, 'z', d, ns, org, fact)
 end
 
-function ctick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::ASCIIString="")
-    mgl.set_ticks_fact(gr.ptr, 'c', dir, d, ns, org, fact)
-end
-
-function xtick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::UTF8String=UTF8String(""))
-    mgl.set_ticks_factw(gr.ptr, 'x', dir, d, ns, org, fact)
-end
-
-function ytick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::UTF8String=UTF8String(""))
-    mgl.set_ticks_factw(gr.ptr, 'y', dir, d, ns, org, fact)
-end
-
-function ztick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::UTF8String=UTF8String(""))
-    mgl.set_ticks_factw(gr.ptr, 'z', dir, d, ns, org, fact)
-end
-
-function ctick(gr::AbstractGraph, d::Real=0; ns::Int=0, org::Real=NaN, fact::UTF8String=UTF8String(""))
-    mgl.set_ticks_factw(gr.ptr, 'c', dir, d, ns, org, fact)
-end
-
-function xtick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'x', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ytick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'y', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ztick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'z', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ctick(gr::AbstractGraph, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_str(gr.ptr, 'c', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-
-function xtick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'x', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ytick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'y', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ztick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'z', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ctick(gr::AbstractGraph, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_wcs(gr.ptr, 'c', reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-
-function xtick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'x', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ytick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ztick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ctick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{ASCIIString}; add=false)
-    mgl.set_ticks_val(gr.ptr, 'c', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-
-function xtick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'x', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ytick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ztick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-function ctick{T<:Real}(gr::AbstractGraph, val::Array{T}, lbl::Array{UTF8String}; add=false)
-    mgl.set_ticks_valw(gr.ptr, 'c', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
-end
-
-# For Resetting
-function xtick(gr::AbstractGraph)
-    mgl.set_ticks(gr.ptr, 'x', 0, 0, NaN)
-end
-function ytick(gr::AbstractGraph)
-    mgl.set_ticks(gr.ptr, 'y', 0, 0, NaN)
-end
-function ztick(gr::AbstractGraph)
-    mgl.set_ticks(gr.ptr, 'z', 0, 0, NaN)
+function ctick(gr::Graph, d::Real=0; ns::Int=0, org::Real=NaN, fact::String="")
+    cmgl.set_ticks_fact(gr.ptr, 'c', d, ns, org, fact)
 end
 
 
-function xtick(gr::AbstractGraph, val::Real, lbl::ASCIIString)
-    mgl.add_tick(gr.ptr, 'x', val, lbl)
+function xtick(gr::Graph, lbl::Array{String}; add=false)
+    cmgl.set_ticks_str(gr.ptr, 'x', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ytick(gr::AbstractGraph, val::Real, lbl::ASCIIString)
-    mgl.add_tick(gr.ptr, 'y', val, lbl)
+function ytick(gr::Graph, lbl::Array{String}; add=false)
+    cmgl.set_ticks_str(gr.ptr, 'y', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ztick(gr::AbstractGraph, val::Real, lbl::ASCIIString)
-    mgl.add_tick(gr.ptr, 'z', val, lbl)
+function ztick(gr::Graph, lbl::Array{String}; add=false)
+    cmgl.set_ticks_str(gr.ptr, 'z', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ctick(gr::AbstractGraph, val::Real, lbl::ASCIIString)
-    mgl.add_tick(gr.ptr, 'c', val, lbl)
-end
-
-function xtick(gr::AbstractGraph, val::Real, lbl::UTF8String)
-    mgl.add_tickw(gr.ptr, 'x', val, lbl)
-end
-function ytick(gr::AbstractGraph, val::Real, lbl::UTF8String)
-    mgl.add_tickw(gr.ptr, 'y', val, lbl)
-end
-function ztick(gr::AbstractGraph, val::Real, lbl::UTF8String)
-    mgl.add_tickw(gr.ptr, 'z', val, lbl)
-end
-function ctick(gr::AbstractGraph, val::Real, lbl::UTF8String)
-    mgl.add_tickw(gr.ptr, 'c', val, lbl)
+function ctick(gr::Graph, lbl::Array{String}; add=false)
+    cmgl.set_ticks_str(gr.ptr, 'c', reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
-function xtick(gr::AbstractGraph, templ::ASCIIString)
-    mgl.set_tick_templ(gr.ptr, 'x', templ)
+
+function xtick(gr::Graph, val::Array{cmgl.Float}, lbl::Array{String}; add=false)
+    cmgl.set_ticks_val(gr.ptr, 'x', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ytick(gr::AbstractGraph, templ::ASCIIString)
-    mgl.set_tick_templ(gr.ptr, 'y', templ)
+function ytick(gr::Graph, val::Array{cmgl.Float}, lbl::Array{String}; add=false)
+    cmgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ztick(gr::AbstractGraph, templ::ASCIIString)
-    mgl.set_tick_templ(gr.ptr, 'z', templ)
+function ztick(gr::Graph, val::Array{cmgl.Float}, lbl::Array{String}; add=false)
+    cmgl.set_ticks_val(gr.ptr, 'y', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
-function ctick(gr::AbstractGraph, templ::ASCIIString)
-    mgl.set_tick_templ(gr.ptr, 'c', templ)
+function ctick(gr::Graph, val::Array{cmgl.Float}, lbl::Array{String}; add=false)
+    cmgl.set_ticks_val(gr.ptr, 'c', Data(val).ptr, reduce(*, Base.map(x->x*"\n", lbl)), add)
 end
 
-function xtick(gr::AbstractGraph, templ::UTF8String)
-    mgl.set_tick_templw(gr.ptr, 'x', templ)
+
+# For Resetting <- would trigger overwrite-warning
+#=function xtick(gr::Graph)=#
+    #=cmgl.set_ticks(gr.ptr, 'x', 0, 0, NaN)=#
+#=end=#
+#=function ytick(gr::Graph)=#
+    #=cmgl.set_ticks(gr.ptr, 'y', 0, 0, NaN)=#
+#=end=#
+#=function ztick(gr::Graph)=#
+    #=cmgl.set_ticks(gr.ptr, 'z', 0, 0, NaN)=#
+#=end=#
+
+
+function xtick(gr::Graph, val::Real, lbl::String)
+    cmgl.add_tick(gr.ptr, 'x', val, lbl)
 end
-function ytick(gr::AbstractGraph, templ::UTF8String)
-    mgl.set_tick_templw(gr.ptr, 'y', templ)
+function ytick(gr::Graph, val::Real, lbl::String)
+    cmgl.add_tick(gr.ptr, 'y', val, lbl)
 end
-function ztick(gr::AbstractGraph, templ::UTF8String)
-    mgl.set_tick_templw(gr.ptr, 'z', templ)
+function ztick(gr::Graph, val::Real, lbl::String)
+    cmgl.add_tick(gr.ptr, 'z', val, lbl)
 end
-function ctick(gr::AbstractGraph, templ::UTF8String)
-    mgl.set_tick_templw(gr.ptr, 'c', templ)
+function ctick(gr::Graph, val::Real, lbl::String)
+    cmgl.add_tick(gr.ptr, 'c', val, lbl)
 end
 
-function tuneticks(gr::AbstractGraph, tune::Int, pos::Real)
-    mgl.tune_ticks(gr.ptr, tune, pos)
+
+function xtick(gr::Graph, templ::String)
+    cmgl.set_tick_templ(gr.ptr, 'x', templ)
+end
+function ytick(gr::Graph, templ::String)
+    cmgl.set_tick_templ(gr.ptr, 'y', templ)
+end
+function ztick(gr::Graph, templ::String)
+    cmgl.set_tick_templ(gr.ptr, 'z', templ)
+end
+function ctick(gr::Graph, templ::String)
+    cmgl.set_tick_templ(gr.ptr, 'c', templ)
 end
 
-function tickshift(gr::AbstractGraph, dx::Real, dy::Real, dz::Real, dc::Real)
-    mgl.tickshift(gr.ptr, dx, dy, dz, dc)
-end
-function tickshift(gr::AbstractGraph; dx::Real=0., dy::Real=0., dz::Real=0., dc::Real=0.)
-    mgl.tickshift(gr.ptr, dx, dy, dz, dc)
+function tuneticks(gr::Graph, tune::Int, pos::Real)
+    cmgl.tune_ticks(gr.ptr, tune, pos)
 end
 
-function tickrotate(gr::AbstractGraph, val::Bool=true)
-    mgl.set_tick_rotate(gr.ptr, val)
+function tickshift(gr::Graph, dx::Real, dy::Real, dz::Real, dc::Real)
+    cmgl.tickshift(gr.ptr, dx, dy, dz, dc)
+end
+function tickshift(gr::Graph; dx::Real=0., dy::Real=0., dz::Real=0., dc::Real=0.)
+    cmgl.tickshift(gr.ptr, dx, dy, dz, dc)
 end
 
-function tickskip(gr::AbstractGraph, val::Bool=true)
-    mgl.set_tick_skip(gr.ptr, val)
+function tickrotate(gr::Graph, val::Bool=true)
+    cmgl.set_tick_rotate(gr.ptr, val)
+end
+
+function tickskip(gr::Graph, val::Bool=true)
+    cmgl.set_tick_skip(gr.ptr, val)
 end
 
 #TODO: time formats for tics etc.
 
-function origintick(gr::AbstractGraph, val::Bool=true)
-    mgl.set_flag(gr.ptr, val, mgl.MGL_NO_ORIGIN)
+function origintick(gr::Graph, val::Bool=true)
+    cmgl.set_flag(gr.ptr, val, cmgl.MGL_NO_ORIGIN)
 end
 
-function ticklen(gr::AbstractGraph, val::Real, stt::Real=1.)
-    mgl.set_tick_len(gr.ptr, val, stt)
+function ticklen(gr::Graph, val::Real, stt::Real=1.)
+    cmgl.set_tick_len(gr.ptr, val, stt)
 end
 
-function axisstl(gr::AbstractGraph, stl::ASCIIString="", tck::ASCIIString="", sub::ASCIIString="")
-    mgl.set_axis_stl(gr.ptr, stl, tck, sub)
+function axisstl(gr::Graph, stl::String="", tck::String="", sub::String="")
+    cmgl.set_axis_stl(gr.ptr, stl, tck, sub)
 end
 
 # Subplots and Rotations
 # Preferred Order: subplot,multiplot,inplot -> title -> rotate,aspect -> plotting
 # or:              columnplot, gridplot, stickplot, relative inplot -> ...
 
-function subplot(gr::AbstractGraph, nx::Int, ny::Int, m::Int; stl::ASCIIString="<>_^", dx::Real=0, dy::Real=0)
-    mgl.subplot_d(gr.ptr, nx, ny, m, stl, dx, dy)
+function subplot(gr::Graph, nx::Int, ny::Int, m::Int; stl::String="<>_^", dx::Real=0, dy::Real=0)
+    cmgl.subplot_d(gr.ptr, nx, ny, m-1, stl, dx, dy)
 end
 
-function multiplot(gr::AbstractGraph, nx::Int, ny::Int, m::Int, dx::Int, dy::Int; stl::ASCIIString="<>_^")
-    mgl.multiplot(gr.ptr, nx, ny, m, dx, dy, stl)
+function multiplot(gr::Graph, nx::Int, ny::Int, m::Int, dx::Int, dy::Int; stl::String="<>_^")
+    cmgl.multiplot(gr.ptr, nx, ny, m-1, dx, dy, stl)
 end
 
-function inplot(gr::AbstractGraph, x1::Real, x2::Real, y1::Real, y2::Real, rel::Bool=true)
+function inplot(gr::Graph, x1::Real, x2::Real, y1::Real, y2::Real, rel::Bool=true)
     if rel
-        mgl.inplot(gr.ptr, x1, x2, y1, y2)
+        cmgl.inplot(gr.ptr, x1, x2, y1, y2)
     else
-        mgl.relplot(gr.ptr, x1, x2, y1, y2)
+        cmgl.relplot(gr.ptr, x1, x2, y1, y2)
     end
 end
 
-function columnplot(gr::AbstractGraph, num::Int, ind::Int, d::Real=0.)
-    mgl.columnplot_d(gr.ptr, num, ind, d)
+function columnplot(gr::Graph, num::Int, ind::Int, d::Real=0.)
+    cmgl.columnplot_d(gr.ptr, num, ind-1, d)
 end
 
-function gridplot(gr::AbstractGraph, nx::Int, ny::Int, ind::Int, d::Real=0.)
-    mgl.gridplot_d(gr.ptr, nx, ny, ind, d)
+function gridplot(gr::Graph, nx::Int, ny::Int, ind::Int, d::Real=0.)
+    cmgl.gridplot_d(gr.ptr, nx, ny, ind-1, d)
 end
 
-function stickplot(gr::AbstractGraph, num::Int, ind::Int, tet::Real, phi::Real)
-    mgl.stickplot(gr.ptr, num, ind, tet, phi)
+function stickplot(gr::Graph, num::Int, ind::Int, tet::Real, phi::Real)
+    cmgl.stickplot(gr.ptr, num, ind-1, tet, phi)
 end
 
-function title(gr::AbstractGraph, txt::ASCIIString; stl::ASCIIString="", size::Int=-2)
-    mgl.title(gr.ptr, txt, stl, size)
+function title(gr::Graph, txt::String; stl::String="", size::Int=-2)
+    cmgl.title(gr.ptr, txt, stl, size)
 end
-function title(gr::AbstractGraph, txt::UTF8String; stl::ASCIIString="", size::Int=-2)
-    mgl.titlew(gr.ptr, txt, stl, size)
+#=function title(gr::Graph, txt::UTF8String; stl::String="", size::Int=-2)=#
+    #=cmgl.titlew(gr.ptr, txt, stl, size)=#
+#=end=#
+
+function rotate(gr::Graph, tetx::Real, tetz::Real, tety::Real=0.)
+    cmgl.rotate(gr.ptr, tetx, tetz, tety)
 end
 
-function rotate(gr::AbstractGraph, tetx::Real, tetz::Real, tety::Real=0.)
-    mgl.rotate(gr.ptr, tetx, tetz, tety)
+function rotate(gr::Graph, tet::Real, x::Real, y::Real, z::Real)
+    cmgl.rotate_vector(gr.ptr, tet, x, y, z)
 end
 
-function rotate(gr::AbstractGraph, tet::Real, x::Real, y::Real, z::Real)
-    mgl.rotate_vector(gr.ptr, tet, x, y, z)
+function xrotate(gr::Graph, tet::Real)
+    cmgl.rotate_vector(gr.ptr, tet, 1., 0., 0.)
+end
+function yrotate(gr::Graph, tet::Real)
+    cmgl.rotate_vector(gr.ptr, tet, 0., 1., 0.)
+end
+function zrotate(gr::Graph, tet::Real)
+    cmgl.rotate_vector(gr.ptr, tet, 0., 0., 1.)
 end
 
-function xrotate(gr::AbstractGraph, tet::Real)
-    mgl.rotate_vector(gr.ptr, tet, 1., 0., 0.)
-end
-function yrotate(gr::AbstractGraph, tet::Real)
-    mgl.rotate_vector(gr.ptr, tet, 0., 1., 0.)
-end
-function zrotate(gr::AbstractGraph, tet::Real)
-    mgl.rotate_vector(gr.ptr, tet, 0., 0., 1.)
-end
-
-function aspect(gr::AbstractGraph, ax::Real, ay::Real, az::Real=1.)
-    mgl.aspect(gr.ptr, ax, ay, az)
+function aspect(gr::Graph, ax::Real, ay::Real, az::Real=1.)
+    cmgl.aspect(gr.ptr, ax, ay, az)
 end
 
 #TODO Push and Pop for matrices on stack
-function plotfactor(gr::AbstractGraph, val::Real)
-    mgl.plotfactor(gr.ptr, val)
+function plotfactor(gr::Graph, val::Real)
+    cmgl.plotfactor(gr.ptr, val)
 end
 
-function perspective(gr::AbstractGraph, a::Real)
-    mgl.perspective(gr.ptr, a)
+function perspective(gr::Graph, a::Real)
+    cmgl.perspective(gr.ptr, a)
 end
 
-function view(gr::AbstractGraph, tetx::Real, tetz::Real, tety::Real=0.)
-    mgl.view(gr.ptr, tetx, tetz, tety)
+function view(gr::Graph, tetx::Real, tetz::Real, tety::Real=0.)
+    cmgl.view(gr.ptr, tetx, tetz, tety)
 end
 
-function zoom(gr::AbstractGraph, x1::Real, y1::Real, x2::Real, y2::Real)
-    mgl.set_zoom(gr.ptr, x1, y1, x2, y2)
+function zoom(gr::Graph, x1::Real, y1::Real, x2::Real, y2::Real)
+    cmgl.set_zoom(gr.ptr, x1, y1, x2, y2)
 end
 
 # Additional helper functions
-function setsize(gr::AbstractGraph, width::Int, height::Int)
-    mgl.set_size(gr.ptr, width, height)
+function setsize(gr::Graph, width::Int, height::Int)
+    cmgl.set_size(gr.ptr, width, height)
 end
 
-function quality(gr::AbstractGraph, val::Int)
-    mgl.set_quality(gr.ptr, val)
+function quality(gr::Graph, val::Int)
+    cmgl.set_quality(gr.ptr, val)
 end
 
-function quality(gr::AbstractGraph)
-    mgl.get_quality(gr.ptr)
+function quality(gr::Graph)
+    cmgl.get_quality(gr.ptr)
 end
 
-function startgroup(gr::AbstractGraph, name::ASCIIString)
-    mgl.start_group(gr.ptr, name)
+function startgroup(gr::Graph, name::String)
+    cmgl.start_group(gr.ptr, name)
 end
 
-function endgroup(gr::AbstractGraph)
-    mgl.end_group(gr.ptr)
+function endgroup(gr::Graph)
+    cmgl.end_group(gr.ptr)
 end
 
 # File Export
-function write(gr::AbstractGraph, fname::ASCIIString="", descr::ASCIIString="")
-    mgl.write_frame(gr.ptr, fname, descr)
+function write(gr::Graph, fname::String="", descr::String="")
+    cmgl.write_frame(gr.ptr, fname, descr)
 end
 
-function writepng(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="", compr::Int=""; alpha::Bool=true)
+function writepng(gr::Graph, fname::String, descr::String="", compr::Int=""; alpha::Bool=true)
     if alpha 
-        mgl.write_png(gr.ptr, fname, descr)
+        cmgl.write_png(gr.ptr, fname, descr)
     else
-        mgl.write_png_solid(gr.ptr, fname, descr)
+        cmgl.write_png_solid(gr.ptr, fname, descr)
     end
 end
 
-function writejpg(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_jpg(gr.ptr, fname, descr)
+function writejpg(gr::Graph, fname::String, descr::String="")
+    cmgl.write_jpg(gr.ptr, fname, descr)
 end
 
-function writegif(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_gif(gr.ptr, fname, descr)
+function writegif(gr::Graph, fname::String, descr::String="")
+    cmgl.write_gif(gr.ptr, fname, descr)
 end
 
-function writebmp(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_bmp(gr.ptr, fname, descr)
+function writebmp(gr::Graph, fname::String, descr::String="")
+    cmgl.write_bmp(gr.ptr, fname, descr)
 end
 
-function writetga(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_tga(gr.ptr, fname, descr)
+function writetga(gr::Graph, fname::String, descr::String="")
+    cmgl.write_tga(gr.ptr, fname, descr)
 end
 
-function writeeps(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_eps(gr.ptr, fname, descr)
+function writeeps(gr::Graph, fname::String, descr::String="")
+    cmgl.write_eps(gr.ptr, fname, descr)
 end
 
-function writebps(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_bps(gr.ptr, fname, descr)
+function writebps(gr::Graph, fname::String, descr::String="")
+    cmgl.write_bps(gr.ptr, fname, descr)
 end
 
-function writesvg(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_svg(gr.ptr, fname, descr)
+function writesvg(gr::Graph, fname::String, descr::String="")
+    cmgl.write_svg(gr.ptr, fname, descr)
 end
 
-function writetex(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_tex(gr.ptr, fname, descr)
+function writetex(gr::Graph, fname::String, descr::String="")
+    cmgl.write_tex(gr.ptr, fname, descr)
 end
 
-function writeprc(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString=""; pdf=true)
-    mgl.write_prc(gr.ptr, fname, descr, pdf)
+function writeprc(gr::Graph, fname::String, descr::String=""; pdf=true)
+    cmgl.write_prc(gr.ptr, fname, descr, pdf)
 end
 
-function writeobj(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_obj(gr.ptr, fname, descr)
+function writeobj(gr::Graph, fname::String, descr::String="")
+    cmgl.write_obj(gr.ptr, fname, descr)
 end
 
-function writexyz(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_xyz(gr.ptr, fname, descr)
+function writexyz(gr::Graph, fname::String, descr::String="")
+    cmgl.write_xyz(gr.ptr, fname, descr)
 end
 
-function writestl(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_stl(gr.ptr, fname, descr)
+function writestl(gr::Graph, fname::String, descr::String="")
+    cmgl.write_stl(gr.ptr, fname, descr)
 end
 
-function writeoff(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString=""; colored::Bool=true)
-    mgl.write_off(gr.ptr, fname, descr, colored)
+function writeoff(gr::Graph, fname::String, descr::String=""; colored::Bool=true)
+    cmgl.write_off(gr.ptr, fname, descr, colored)
 end
 
-function writejson(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.write_json(gr.ptr, fname, descr)
+function writejson(gr::Graph, fname::String, descr::String="")
+    cmgl.write_json(gr.ptr, fname, descr)
 end
 
-function exportmgld(gr::AbstractGraph, fname::ASCIIString, descr::ASCIIString="")
-    mgl.export_mgld(gr.ptr, fname, descr)
+function exportmgld(gr::Graph, fname::String, descr::String="")
+    cmgl.export_mgld(gr.ptr, fname, descr)
 end
 
-function importmgld(gr::AbstractGraph, fname::ASCIIString; add::Bool=true)
-    mgl.import_mgld(gr.ptr, fname, add)
+function importmgld(gr::Graph, fname::String; add::Bool=true)
+    cmgl.import_mgld(gr.ptr, fname, add)
 end
 
 #=#TODO:show image function=#
-function showwith(gr::AbstractGraph, viewer::ASCIIString; wait::Bool=true)
-    mgl.show_image(gr.ptr, viewer, wait)
+function showwith(gr::Graph, viewer::String; wait::Bool=true)
+    cmgl.show_image(gr.ptr, viewer, wait)
 end
 
-function newframe(gr::AbstractGraph)
-    mgl.new_frame(gr.ptr)
+function newframe(gr::Graph)
+    cmgl.new_frame(gr.ptr)
 end
 
-function endframe(gr::AbstractGraph)
-    mgl.end_frame(gr.ptr)
+function endframe(gr::Graph)
+    cmgl.end_frame(gr.ptr)
 end
 
-function getnumframe(gr::AbstractGraph)
-    mgl.get_num_frame(gr.ptr)
+function getnumframe(gr::Graph)
+    cmgl.get_num_frame(gr.ptr)
 end
 
-function setnumframe(gr::AbstractGraph, n::Int)
-    mgl.set_num_frame(gr.ptr, n)
+function setnumframe(gr::Graph, n::Int)
+    cmgl.set_num_frame(gr.ptr, n)
 end
 
-function getframe(gr::AbstractGraph, n::Int)
-    mgl.get_frame(gr.ptr, n)
+function getframe(gr::Graph, n::Int)
+    cmgl.get_frame(gr.ptr, n)
 end
 
-function showframe(gr::AbstractGraph, n::Int)
-    mgl.show_frame(gr.ptr, n)
+function showframe(gr::Graph, n::Int)
+    cmgl.show_frame(gr.ptr, n)
 end
 
-function delframe(gr::AbstractGraph, n::Int)
-    mgl.del_frame(gr.ptr, n)
+function delframe(gr::Graph, n::Int)
+    cmgl.del_frame(gr.ptr, n)
 end
 
-function resetframes(gr::AbstractGraph)
-    mgl.reset_frames(gr.ptr)
+function resetframes(gr::Graph)
+    cmgl.reset_frames(gr.ptr)
 end
 
-function clearframe(gr::AbstractGraph, n::Int)
-    mgl.clear_frame(gr.ptr, n)
+function clearframe(gr::Graph, n::Int)
+    cmgl.clear_frame(gr.ptr, n)
 end
 
-function startgif(gr::AbstractGraph, fname::ASCIIString, ms::Int=100)
-    mgl.start_gif(gr.ptr, fname, ms)
+function startgif(gr::Graph, fname::String, ms::Int=100)
+    cmgl.start_gif(gr.ptr, fname, ms)
 end
 
-function closegif(gr::AbstractGraph)
-    mgl.close_gif(gr.ptr)
+function closegif(gr::Graph)
+    cmgl.close_gif(gr.ptr)
 end
 
-function width(gr::AbstractGraph)
-    mgl.get_width(gr.ptr)
+function width(gr::Graph)
+    cmgl.get_width(gr.ptr)
 end
-function height(gr::AbstractGraph)
-    mgl.get_height(gr.ptr)
-end
-
-function getrgb(gr::AbstractGraph)
-    pointer_to_array(mgl.get_rgb(gr.ptr), (3, width(gr), height(gr)), true)
+function height(gr::Graph)
+    cmgl.get_height(gr.ptr)
 end
 
-function getrgba(gr::AbstractGraph)
-    pointer_to_array(mgl.get_rgba(gr.ptr), (4, width(gr), height(gr)), true)
+function getrgb(gr::Graph)
+    pointer_to_array(cmgl.get_rgb(gr.ptr), (3, width(gr), height(gr)), true)
 end
 
-function getwidth(gr::AbstractGraph)
-    mgl.get_width(gr.ptr)
+function getrgba(gr::Graph)
+    pointer_to_array(cmgl.get_rgba(gr.ptr), (4, width(gr), height(gr)), true)
 end
 
-function getheight(gr::AbstractGraph)
-    mgl.get_height(gr.ptr)
+function getwidth(gr::Graph)
+    cmgl.get_width(gr.ptr)
 end
 
-function calcxyz(gr::AbstractGraph, xs::Int, ys::Int)
+function getheight(gr::Graph)
+    cmgl.get_height(gr.ptr)
+end
+
+function calcxyz(gr::Graph, xs::Int, ys::Int)
     x = Int[0]
     y = Int[0]
     z = Int[0]
-    mgl.calc_xyz(gr.ptr, xs, ys, x, y, z)
+    cmgl.calc_xyz(gr.ptr, xs, ys, x, y, z)
     [x,y,z]
 end
 
-function calcscr(gr::AbstractGraph, x::Int, y::Int, z::Int)
+function calcscr(gr::Graph, x::Int, y::Int, z::Int)
     xs = Int[0]
     ys = Int[0]
-    mgl.calc_scr(gr.ptr, x, y, z, xs, ys)
+    cmgl.calc_scr(gr.ptr, x, y, z, xs, ys)
     [xs, ys]
 end
 
-function objectid(gr::AbstractGraph, id::Int)
-    mgl.set_obj_id(gr.ptr, id)
+function objectid(gr::Graph, id::Int)
+    cmgl.set_obj_id(gr.ptr, id)
 end
 
-function objectid(gr::AbstractGraph, xs::Int, ys::Int)
-    mgl.get_obj_id(gr.ptr, xs, ys)
+function objectid(gr::Graph, xs::Int, ys::Int)
+    cmgl.get_obj_id(gr.ptr, xs, ys)
 end
 
-function subplotid(gr::AbstractGraph, xs::Int, ys::Int)
-    mgl.get_spl_id(gr.ptr, xs, ys)
+function subplotid(gr::Graph, xs::Int, ys::Int)
+    cmgl.get_spl_id(gr.ptr, xs, ys)
 end
 
-function highlight(gr::AbstractGraph, id::Int)
-    mgl.highlight(gr.ptr, id)
+function highlight(gr::Graph, id::Int)
+    cmgl.highlight(gr.ptr, id)
 end
 
-function isactive(gr::AbstractGraph, xs::Int, ys::Int, d::Int=1)
-    mgl.is_active(gr.ptr, xs, ys, d)
+function isactive(gr::Graph, xs::Int, ys::Int, d::Int=1)
+    cmgl.is_active(gr.ptr, xs, ys, d)
 end
 
-function drawregion(gr::AbstractGraph, nx::Int, ny::Int, m::Int)
-    mgl.set_draw_reg(gr.ptr, nx, ny, m)
+function drawregion(gr::Graph, nx::Int, ny::Int, m::Int)
+    cmgl.set_draw_reg(gr.ptr, nx, ny, m)
 end
 
 ## NOT TO BE EXPORTED ###
 function numthreads(n::Int)
-    mgl.set_num_thr(n)
+    cmgl.set_num_thr(n)
 end
 
-function combine(gr::AbstractGraph, gr2::AbstractGraph)
-    mgl.combine_gr(gr.ptr, gr2.ptr)
+function combine(gr::Graph, gr2::Graph)
+    cmgl.combine_gr(gr.ptr, gr2.ptr)
 end
 
-function mpisend(gr::AbstractGraph, id::Int)
-    mgl.mpi_send(gr.ptr, id)
+function mpisend(gr::Graph, id::Int)
+    cmgl.mpi_send(gr.ptr, id)
 end
 
-function mpirecv(gr::AbstractGraph, id::Int)
-    mgl.mpi_recv(gr.ptr, id)
+function mpirecv(gr::Graph, id::Int)
+    cmgl.mpi_recv(gr.ptr, id)
 end
 
-function clf(gr::AbstractGraph)
-    mgl.clf(gr.ptr)
+function clf(gr::Graph)
+    cmgl.clf(gr.ptr)
 end
 
-function clf(gr::AbstractGraph, col::ASCIIString)
-    mgl.clf_str(gr.ptr, col)
+function clf(gr::Graph, col::String)
+    cmgl.clf_str(gr.ptr, col)
 end
 
-function clf(gr::AbstractGraph, col::Char)
-    mgl.clf_chr(gr.ptr, col)
+function clf(gr::Graph, col::Char)
+    cmgl.clf_chr(gr.ptr, col)
 end
 
-function clf(gr::AbstractGraph, r::Real, g::Real, b::Real)
-    mgl.clf_chr(gr.ptr, r, g, b)
+function clf(gr::Graph, r::Real, g::Real, b::Real)
+    cmgl.clf_chr(gr.ptr, r, g, b)
 end
 
-function rasterize(gr::AbstractGraph)
-    mgl.rasterize(gr.ptr)
+function rasterize(gr::Graph)
+    cmgl.rasterize(gr.ptr)
 end
 
-function background(gr::AbstractGraph, fname::ASCIIString, alpha::Float64=1)
-    mgl.load_background(gr.ptr, fname, alpha)
+function background(gr::Graph, fname::String, alpha::Float64=1)
+    cmgl.load_background(gr.ptr, fname, alpha)
 end
 

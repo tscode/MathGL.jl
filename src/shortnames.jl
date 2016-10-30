@@ -3,12 +3,12 @@ using MathGL
 export MathGL
 
 # Export all types with shorter names
-typealias AbstractGraph MathGL.AbstractGraph 
+typealias Graph MathGL.Graph 
 typealias AbstractData MathGL.AbstractData 
 typealias Graph MathGL.Graph 
 typealias Data MathGL.Data 
 
-export AbstractGraph, AbstractData, Graph, Data
+export Graph, AbstractData, Graph, Data
 
 # Export all macros
 export @mglplot

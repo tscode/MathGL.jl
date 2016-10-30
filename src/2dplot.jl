@@ -1,198 +1,198 @@
 
 
-function surf(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.surf(gr.ptr, Data(z).ptr, stl, opt)
+function surf(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.surf(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function surf(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.surf_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function surf(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.surf_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function mesh(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.mesh(gr.ptr, Data(z).ptr, stl, opt)
+function mesh(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.mesh(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function mesh(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.mesh_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function mesh(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.mesh_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function fall(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.fall(gr.ptr, Data(z).ptr, stl, opt)
+function fall(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.fall(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function fall(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.fall_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function fall(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.fall_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function belt(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.belt(gr.ptr, Data(z).ptr, stl, opt)
+function belt(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.belt(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function belt(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.belt_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function belt(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.belt_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function boxs(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.boxs(gr.ptr, Data(z).ptr, stl, opt)
+function boxs(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.boxs(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function boxs(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.boxs_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function boxs(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.boxs_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function tile(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.tile(gr.ptr, Data(z).ptr, stl, opt)
+function tile(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.tile(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function tile(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.tile_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-
-function dens(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.dens(gr.ptr, Data(z).ptr, stl, opt)
-end
-
-function dens(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.dens_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function tile(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.tile_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-function cont(gr::AbstractGraph, v::Array{mgl.Float, 1}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+function dens(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.dens(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function cont(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-
-function cont(gr::AbstractGraph, v::mgl.Float, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(z).ptr, stl, opt)
-end
-
-function cont(gr::AbstractGraph, v::mgl.Float, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont_xy_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-function cont(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont(gr.ptr, Data(z).ptr, stl, opt)
-end
-
-function cont(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.cont_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function dens(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.dens_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-function contf(gr::AbstractGraph, v::Array{mgl.Float, 1}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, v::Array{cmgl.Float, 1}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
 end
 
-function contf(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-
-function contf(gr::AbstractGraph, v::mgl.Float, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(z).ptr, stl, opt)
-end
-
-function contf(gr::AbstractGraph, v::mgl.Float, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf_xy_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-function contf(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf(gr.ptr, Data(z).ptr, stl, opt)
-end
-
-function contf(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contf_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, v::Array{cmgl.Float, 1}, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-
-function contd(gr::AbstractGraph, v::Array{mgl.Float, 1}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, v::cmgl.Float, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(z).ptr, stl, opt)
 end
 
-function contd(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, v::cmgl.Float, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont_xy_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-
-function contd(gr::AbstractGraph, v::mgl.Float, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function contd(gr::AbstractGraph, v::mgl.Float, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd_xy_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-function contd(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd(gr.ptr, Data(z).ptr, stl, opt)
-end
-
-function contd(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contd_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function cont(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.cont_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-function contv(gr::AbstractGraph, v::Array{mgl.Float, 1}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+function contf(gr::Graph, v::Array{cmgl.Float, 1}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
 end
 
-function contv(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-
-function contv(gr::AbstractGraph, v::mgl.Float, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(z).ptr, stl, opt)
-end
-
-function contv(gr::AbstractGraph, v::mgl.Float, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv_xy_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
-end
-
-function contv(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv(gr.ptr, Data(z).ptr, stl, opt)
-end
-
-function contv(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.contv_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function contf(gr::Graph, v::Array{cmgl.Float, 1}, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-function axial(gr::AbstractGraph, v::Array{mgl.Float, 1}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+function contf(gr::Graph, v::cmgl.Float, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(z).ptr, stl, opt)
 end
 
-function axial(gr::AbstractGraph, v::Array{mgl.Float, 1}, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function contf(gr::Graph, v::cmgl.Float, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf_xy_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+function contf(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf(gr.ptr, Data(z).ptr, stl, opt)
+end
+
+function contf(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contf_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
 
-function axial(gr::AbstractGraph, v::mgl.Float, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(z).ptr, stl, opt)
+
+function contd(gr::Graph, v::Array{cmgl.Float, 1}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
 end
 
-function axial(gr::AbstractGraph, v::mgl.Float, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial_xy_val(gr.ptr, Data(mgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function contd(gr::Graph, v::Array{cmgl.Float, 1}, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function axial(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial(gr.ptr, Data(z).ptr, stl, opt)
+
+function contd(gr::Graph, v::cmgl.Float, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(z).ptr, stl, opt)
 end
 
-function axial(gr::AbstractGraph, x::Array{mgl.Float, 2}, y::Array{mgl.Float, 2}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.axial_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function contd(gr::Graph, v::cmgl.Float, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd_xy_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 
-function grid(gr::AbstractGraph, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.grid(gr.ptr, Data(z).ptr, stl, opt)
+function contd(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd(gr.ptr, Data(z).ptr, stl, opt)
 end
 
-function grid(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float, 2}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.grid_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+function contd(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contd_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+
+function contv(gr::Graph, v::Array{cmgl.Float, 1}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+end
+
+function contv(gr::Graph, v::Array{cmgl.Float, 1}, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+
+function contv(gr::Graph, v::cmgl.Float, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(z).ptr, stl, opt)
+end
+
+function contv(gr::Graph, v::cmgl.Float, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv_xy_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+function contv(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv(gr.ptr, Data(z).ptr, stl, opt)
+end
+
+function contv(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.contv_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+
+function axial(gr::Graph, v::Array{cmgl.Float, 1}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial_val(gr.ptr, Data(v).ptr, Data(z).ptr, stl, opt)
+end
+
+function axial(gr::Graph, v::Array{cmgl.Float, 1}, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial_xy_val(gr.ptr, Data(v).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+
+function axial(gr::Graph, v::cmgl.Float, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(z).ptr, stl, opt)
+end
+
+function axial(gr::Graph, v::cmgl.Float, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial_xy_val(gr.ptr, Data(cmgl.Float[v]).ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+function axial(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial(gr.ptr, Data(z).ptr, stl, opt)
+end
+
+function axial(gr::Graph, x::Array{cmgl.Float, 2}, y::Array{cmgl.Float, 2}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.axial_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
+end
+
+function grid(gr::Graph, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.grid(gr.ptr, Data(z).ptr, stl, opt)
+end
+
+function grid(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, z::Array{cmgl.Float, 2}; stl::String="", opt::String="")
+    cmgl.grid_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, stl, opt)
 end
 

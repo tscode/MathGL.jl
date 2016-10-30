@@ -1,148 +1,148 @@
 # Vector fields (section 4.15 in the mgl manual)
 
-function traj(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.traj_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function traj(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.traj_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function traj(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float},  z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.traj_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function traj(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float},  z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.traj_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                      Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function vect(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.vect_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function vect(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.vect_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function vect(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float},  z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.vect_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function vect(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float},  z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.vect_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                      Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function vect(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.vect_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function vect(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.vect_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function vect(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.vect_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
+function vect(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.vect_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
 
-function vect3(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float},  z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float},
-                                 sval::mgl.Float=-1.; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.vect3_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function vect3(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float},  z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float},
+                                 sval::cmgl.Float=-1.; stl::String="", opt::String="")
+    cmgl.vect3_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                       Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, sval, opt)
 end
 
-function vect3(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float},
-                                 sval::mgl.Float=-1; stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.vect3(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, sval, opt)
+function vect3(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float},
+                                 sval::cmgl.Float=-1; stl::String="",  opt::String="")
+    cmgl.vect3(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, sval, opt)
 end
 
-function dew(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float}, 
-                                ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.dew_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function dew(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float}, 
+                                ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                stl::String="",  opt::String="")
+    cmgl.dew_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function dew(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.dew(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function dew(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                stl::String="",  opt::String="")
+    cmgl.dew(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flow_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function flow(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flow_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x::Array{mgl.Float},  y::Array{mgl.Float},  z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flow_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function flow(gr::Graph, x::Array{cmgl.Float},  y::Array{cmgl.Float},  z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flow_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                      Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flow_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function flow(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flow_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flow_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
+function flow(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flow_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x0::mgl.Float,        y0::mgl.Float,
-                                 x::Array{mgl.Float},  y::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flowp_xy(gr.ptr, x0, y0, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function flow(gr::Graph, x0::cmgl.Float,        y0::cmgl.Float,
+                                 x::Array{cmgl.Float},  y::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flowp_xy(gr.ptr, x0, y0, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x0::mgl.Float,        y0::mgl.Float,        z0::mgl.Float,
-                                 x::Array{mgl.Float},  y::Array{mgl.Float},  z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flowp_xyz(gr.ptr, x0, y0, z0, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function flow(gr::Graph, x0::cmgl.Float,        y0::cmgl.Float,        z0::cmgl.Float,
+                                 x::Array{cmgl.Float},  y::Array{cmgl.Float},  z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flowp_xyz(gr.ptr, x0, y0, z0, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                       Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x0::mgl.Float,  y0::mgl.Float, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flowp_2d(gr.ptr, x0, y0, Data(ax).ptr, Data(ay).ptr, stl, opt)
+function flow(gr::Graph, x0::cmgl.Float,  y0::cmgl.Float, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flowp_2d(gr.ptr, x0, y0, Data(ax).ptr, Data(ay).ptr, stl, opt)
 end
 
-function flow(gr::AbstractGraph, x0::mgl.Float,  y0::mgl.Float,  z0::mgl.Float, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float};
-                                 stl::ASCIIString="",  opt::ASCIIString="")
-    mgl.flowp_3d(gr.ptr, x0, y0, z0, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
+function flow(gr::Graph, x0::cmgl.Float,  y0::cmgl.Float,  z0::cmgl.Float, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float};
+                                 stl::String="",  opt::String="")
+    cmgl.flowp_3d(gr.ptr, x0, y0, z0, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, opt)
 end
 
-function grad(gr::AbstractGraph, phi::Array{mgl.Float}; stl::ASCIIString="", opt::ASCIIString="")
-    mgl.grad(gr.ptr, Data(phi).ptr, stl, opt)
+function grad(gr::Graph, phi::Array{cmgl.Float}; stl::String="", opt::String="")
+    cmgl.grad(gr.ptr, Data(phi).ptr, stl, opt)
 end
 
-function grad(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, phi::Array{mgl.Float}; 
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.grad_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(phi).ptr, stl, opt)
+function grad(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, phi::Array{cmgl.Float}; 
+                                 stl::String="", opt::String="")
+    cmgl.grad_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(phi).ptr, stl, opt)
 end
 
-function grad(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float}, phi::Array{mgl.Float}; 
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.grad_xyz(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, Data(phi).ptr, stl, opt)
+function grad(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, z::Array{cmgl.Float}, phi::Array{cmgl.Float}; 
+                                 stl::String="", opt::String="")
+    cmgl.grad_xyz(gr.ptr, Data(x).ptr, Data(y).ptr, Data(z).ptr, Data(phi).ptr, stl, opt)
 end
 
-function pipe(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, r0::mgl.Float=0.05;
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.pipe_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, r0, opt) 
+function pipe(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, r0::cmgl.Float=0.05;
+                                 stl::String="", opt::String="")
+    cmgl.pipe_xy(gr.ptr, Data(x).ptr, Data(y).ptr, Data(ax).ptr, Data(ay).ptr, stl, r0, opt) 
 end
 
-function pipe(gr::AbstractGraph, x::Array{mgl.Float}, y::Array{mgl.Float}, z::Array{mgl.Float}, 
-                                 ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float}, r0::mgl.Float=0.05;
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.pipe_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
+function pipe(gr::Graph, x::Array{cmgl.Float}, y::Array{cmgl.Float}, z::Array{cmgl.Float}, 
+                                 ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float}, r0::cmgl.Float=0.05;
+                                 stl::String="", opt::String="")
+    cmgl.pipe_xyz(gr.ptr, Data(x).ptr,  Data(y).ptr,  Data(z).ptr, 
                          Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, r0, opt) 
 end
 
-function pipe(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float}, r0::mgl.Float=0.05;
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.pipe_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, r0, opt) 
+function pipe(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, r0::cmgl.Float=0.05;
+                                 stl::String="", opt::String="")
+    cmgl.pipe_2d(gr.ptr, Data(ax).ptr, Data(ay).ptr, stl, r0, opt) 
 end
 
-function pipe(gr::AbstractGraph, ax::Array{mgl.Float}, ay::Array{mgl.Float}, az::Array{mgl.Float}, r0::mgl.Float=0.05;
-                                 stl::ASCIIString="", opt::ASCIIString="")
-    mgl.pipe_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, r0, opt) 
+function pipe(gr::Graph, ax::Array{cmgl.Float}, ay::Array{cmgl.Float}, az::Array{cmgl.Float}, r0::cmgl.Float=0.05;
+                                 stl::String="", opt::String="")
+    cmgl.pipe_3d(gr.ptr, Data(ax).ptr, Data(ay).ptr, Data(az).ptr, stl, r0, opt) 
 end
