@@ -7,7 +7,7 @@ end
 
 function image_string(gr::Graph, format)
     name = tempname()"_." * string(format)
-    writeframe(gr, name)
+    write(gr, name)
     tmpfile = open(name, "r")
     str = readbytes(tmpfile)
     close(file)
