@@ -17,14 +17,6 @@ type Graph
     end
 end
 
-import Base: show
-function show(io::IO, gr::Graph)
-    print(io, "MathGL Graph of size $(width(gr))x$(height(gr))")
-end
-
-
-
-
 
 #
 # Data type as wrapper around the standard mglData class for real floating

@@ -32,6 +32,9 @@ cmgl = MathGL.Capi
 # linked arrays in data) are supported
 include("types.jl")
 
+# Add show methods for mathgl graphs, i.e. for display in jupyter
+include("multimedia.jl")
+
 # Funktions to set options, defaults, ect.
 include("setup.jl")
 
