@@ -162,7 +162,7 @@
 @getf lib mgl_mat_pop(gr::HMGL)::Void
 @getf lib mgl_mat_push(gr::HMGL)::Void
 @getf lib mgl_clf(gr::HMGL)::Void
-@getf lib mgl_clf_str(gr::HMGL, str::Ptr{Cchar})::Void
+@getf lib mgl_clf_str(gr::HMGL, col::Ptr{Cchar})::Void
 @getf lib mgl_clf_rgb(gr::HMGL, r::Cdouble, g::Cdouble, b::Cdouble)::Void
 @getf lib mgl_clf_chr(gr::HMGL, col::Cchar)::Void
 @getf lib mgl_subplot(gr::HMGL, nx::Cint, ny::Cint, m::Cint, style::Ptr{Cchar})::Void
