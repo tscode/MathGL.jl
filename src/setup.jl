@@ -676,7 +676,7 @@ function clf(gr::Graph, col::Char)
 end
 
 function clf(gr::Graph, r::Real, g::Real, b::Real)
-    cmgl.clf_chr(gr.ptr, r, g, b)
+    cmgl.clf_rgb(gr.ptr, r, g, b)
 end
 
 function rasterize(gr::Graph)

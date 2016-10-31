@@ -8,6 +8,8 @@
 
 
 const lib     = Libdl.find_library(["libmgl", "libmgl2"])
+# For debugging purposes
+#=const lib     = Libdl.find_library(["/home/thomas/downloads/mathgl-2.3.5.1/src/libmgl2.so"])=#
 const libqt   = Libdl.find_library(["libmgl-qt"])
 const libfltk = Libdl.find_library(["libmgl-fltk"])
 const libglut = Libdl.find_library(["libmgl-glut"])
