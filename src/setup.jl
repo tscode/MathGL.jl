@@ -106,8 +106,19 @@ function font(gr::Graph, fnt::String)
     cmgl.set_font_def(gr.ptr, fnt)
 end
 
-function font(gr::Graph, val::Real)
-    cmgl.set_font_size(gr.ptr, val)
+function fontsize(gr::Graph, s::Real, dpi::Int; unit=:pt)
+    # Found the conversions in base.h
+    if str(unit) == "pt"
+        cmgl.set_font_size(s*27/dpi)
+    elseif str(unit) == "cm"
+        cmgl.set_font_size(s*27*28.45/dpi)
+    elseif str(unit) == "in"
+        cmgl.set_font_size(s*27*72.27/dpi)
+    elseif str(unit) == "mm"
+        cmgl.set_font_size(s*27*2.845/dpi)
+    else
+        cmgl.set_font_size(s)
+    end
 end
 
 function font(gr::Graph, fnt::String, val::Real)
